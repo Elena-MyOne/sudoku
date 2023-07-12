@@ -1,0 +1,9 @@
+.welcome {
+  height: 600px;
+  background: url('../src/assets/images/welcome/1.jpg') no-repeat center;
+  &__overlay {
+    background: url('../src/assets/images/welcome/2.png') no-repeat center;
+  }
+  &__body {
+  }
+}
