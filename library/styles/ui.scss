@@ -1,0 +1,16 @@
+.title {
+  color: $titleColor;
+  font-family: Forum;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.line {
+  width: 50px;
+  height: 1px;
+  background-color: $titleColor;
+  margin: 20px auto;
+}
