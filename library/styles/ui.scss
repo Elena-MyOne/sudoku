@@ -31,3 +31,15 @@
     border: 1px $buttonsColor solid;
   }
 }
+
+.button-own {
+  color: $buttonsColor;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: block;
+  border: 1px $buttonsColor solid;
+  padding: 8px 25px;
+  cursor: pointer;
+}

@@ -75,6 +75,16 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 221px;
     row-gap: 40px;
+    padding-bottom: 40px;
+    &.spring {
+      display: none;
+    }
+    &.summer {
+      display: none;
+    }
+    &.autumn {
+      display: none;
+    }
   }
 }
 
