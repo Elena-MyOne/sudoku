@@ -14,3 +14,20 @@
   background-color: $titleColor;
   margin: 20px auto;
 }
+
+.button {
+  color: $titleColor;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: block;
+  border: 1px $titleColor solid;
+  padding: 8px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    background-color: $buttonsColor;
+    border: 1px $buttonsColor solid;
+  }
+}

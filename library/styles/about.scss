@@ -36,12 +36,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin: 35px 0px 0 0;
   }
 
   &__dot {
     width: 26px;
     height: 26px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__span {
@@ -50,7 +54,11 @@
     height: 16px;
     background-color: $titleColor;
     border-radius: 50%;
+    transition: all 0.3s ease 0s;
     &.active {
+      background-color: $buttonsColor;
+    }
+    &:hover {
       background-color: $buttonsColor;
     }
   }
