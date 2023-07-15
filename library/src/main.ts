@@ -1,12 +1,12 @@
 import './style.scss';
-import { form, submitForm, validateCardInput, validateNameInput } from './ts/form';
+import { form, name, card, submitForm, validateCardInput, validateNameInput } from './ts/form';
 
 form.addEventListener('submit', submitForm);
 
-form.card.addEventListener('input', () => {
-  validateCardInput(form.card);
+card.addEventListener('input', () => {
+  validateCardInput(card);
 });
 
-form.name.addEventListener('input', () => {
-  validateNameInput(form.name);
+name.addEventListener('input', () => {
+  validateNameInput(name);
 });

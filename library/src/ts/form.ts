@@ -1,4 +1,6 @@
 export const form = document.querySelector('.form__form') as HTMLFormElement;
+export const name = form.name as unknown as HTMLInputElement;
+export const card = form.card as unknown as HTMLInputElement;
 
 export const validateCardInput = (input: HTMLInputElement) => {
   if (input.value) {
