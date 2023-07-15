@@ -1,0 +1,66 @@
+.contacts {
+  &__body {
+    padding-top: 40px;
+  }
+
+  &__title {
+  }
+
+  &__line {
+  }
+
+  &__columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    iframe {
+      width: 696px;
+      height: 434px;
+    }
+  }
+
+  &__info {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+  }
+
+  &__contact {
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+  }
+
+  &__paragraph {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    &-badpositioned {
+      margin-top: -20px;
+    }
+  }
+
+  &__link {
+    color: $mainTextColor;
+    transition: all 0.3s ease 0s;
+    &-mail {
+      font-weight: 700;
+    }
+    &:hover {
+      color: $buttonsColor;
+    }
+  }
+
+  &__map {
+  }
+}

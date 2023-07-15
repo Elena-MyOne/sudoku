@@ -1,0 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Forum:regular);
+
+@import '../styles/variables.scss';
+@import '../styles/reset.scss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $mainTextColor;
+  font-family: $fontFamily;
+  @media (max-width: ($md3+px)) {
+    &.lock {
+      overflow: hidden;
+    }
+  }
+}
+
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: $maxWidth;
+}
+
+.container {
+  max-width: $maxWidthContainer;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 0px;
+  @media (max-width: ($md1+px)) {
+    max-width: 970px;
+  }
+  @media (max-width: ($md2+px)) {
+    max-width: 750px;
+  }
+  @media (max-width: ($md3+px)) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+@import '../styles/header.scss';
+@import '../styles/welcome.scss';
+@import '../styles/ui.scss';
+@import '../styles/about.scss';
+@import '../styles/favorites.scss';
+@import '../styles/coffeshop.scss';
+@import '../styles/contacts.scss';
+@import '../styles/librarycard.scss';
+@import '../styles/footer.scss';

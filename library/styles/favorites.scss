@@ -1,0 +1,153 @@
+.favorites {
+  &__body {
+  }
+
+  &__title {
+    padding-top: 36px;
+  }
+
+  &__line {
+  }
+
+  &__text {
+    color: $mainTextColor;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 85px;
+    padding: 42px 0px 39px;
+    margin-left: -5px;
+  }
+
+  &__button {
+    font-size: 20px;
+    &.active {
+      font-weight: 700;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__fake {
+    display: block;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 7px;
+      width: 7px;
+      background-color: $mainTextColor;
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  &__span {
+    display: block;
+    border-radius: 50%;
+    border: $mainTextColor 2px solid;
+    width: 17px;
+    height: 17px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 221px;
+    row-gap: 40px;
+    padding-bottom: 40px;
+    &.spring {
+      display: none;
+    }
+    &.summer {
+      display: none;
+    }
+    &.autumn {
+      display: none;
+    }
+  }
+}
+
+.favorites__input:checked + .favorites__fake::before {
+  opacity: 1;
+}
+
+.card {
+  position: relative;
+  border: 1px solid #000;
+  padding: 13px 20px;
+  width: 550px;
+  &__body {
+  }
+
+  &__title {
+    font-family: Forum;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+  }
+
+  &__line {
+    width: 60px;
+    height: 1px;
+    background-color: $buttonsColor;
+  }
+
+  &__subtitle {
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    span {
+      text-transform: uppercase;
+    }
+  }
+
+  &__text {
+    padding-top: 20px;
+    font-size: 15px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    max-width: 357px;
+    height: 340px;
+  }
+
+  &__image {
+    position: absolute;
+    right: -40px;
+    bottom: 0;
+    width: 200px;
+    height: 300px;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    margin-top: 14px;
+  }
+}

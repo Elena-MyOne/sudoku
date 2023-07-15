@@ -1,0 +1,104 @@
+.footer {
+  color: $bgColor;
+  &__body {
+    background-color: $titleColor;
+    padding: 20px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 30px;
+    border-bottom: 1px $bgColor solid;
+  }
+
+  &__contacts {
+  }
+
+  &__address {
+    font-size: 15px;
+    line-height: 20px;
+    a {
+      color: $bgColor;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__social {
+    margin-top: 14px;
+    display: flex;
+    gap: 8px;
+  }
+
+  &__icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+    &.twitter {
+      background: url('../src/assets/images/footer/twitter.svg') center no-repeat;
+    }
+    &.instagram {
+      background: url('../src/assets/images/footer/instagram.svg') center no-repeat;
+    }
+    &.facebook {
+      background: url('../src/assets/images/footer/facebook.svg') center no-repeat;
+    }
+  }
+
+  &__schedule {
+    text-align: right;
+    font-size: 15px;
+    line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__days {
+  }
+
+  &__bottom {
+    padding: 46px 0px 23px;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__year {
+  }
+
+  &__school {
+    margin-left: 101px;
+    a {
+      color: $bgColor;
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__username {
+    a {
+      color: $bgColor;
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}

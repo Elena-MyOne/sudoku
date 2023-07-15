@@ -1,0 +1,64 @@
+.header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  padding: 20px 0px;
+  color: $bgColor;
+  background-color: $titleColor;
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-family: Forum;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+  }
+
+  &__burger {
+    display: none;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+  }
+
+  &__nav {
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__link {
+    color: $bgColor;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $buttonsColor;
+    }
+  }
+
+  &__profile {
+    display: block;
+    width: 28px;
+    height: 28px;
+    transition: all 0.3s ease 0s;
+    background: url('../src/assets/images/icons/profile.svg') no-repeat center;
+    &:hover {
+      background: url('../src/assets/images/icons/profile-hover.svg') no-repeat center;
+    }
+  }
+}

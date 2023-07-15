@@ -1,0 +1,65 @@
+.about {
+  &__body {
+    padding: 20px 0px;
+  }
+
+  &__title {
+  }
+
+  &__line {
+  }
+
+  &__text {
+    color: $mainTextColor;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 20px 0px;
+  }
+
+  &__slider {
+  }
+}
+
+.slider {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+  }
+
+  &__item {
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0px 0 0;
+  }
+
+  &__dot {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: $titleColor;
+    border-radius: 50%;
+    transition: all 0.3s ease 0s;
+    &.active {
+      background-color: $buttonsColor;
+    }
+    &:hover {
+      background-color: $buttonsColor;
+    }
+  }
+}
