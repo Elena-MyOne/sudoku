@@ -30,6 +30,22 @@
   }
 
   &__item {
+    &-two {
+      @media (max-width: ($md2+px)){
+        display: none;
+      }
+    }
+    &-three {
+      @media (max-width: ($md2+px)){
+        display: none;
+      }
+    }
+    &-four {
+      display: none;
+    }
+    &-five {
+      display: none;
+    }
   }
 
   &__pagination {

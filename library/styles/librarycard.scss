@@ -13,6 +13,9 @@
     display: flex;
     gap: 40px;
     justify-content: space-between;
+    @media (max-width: ($md2+px)) {
+      flex-direction: column;
+    }
   }
 
   &__reader {

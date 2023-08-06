@@ -24,15 +24,40 @@
 
   &__burger {
     display: none;
+    position: relative;
+    @media (max-width: ($md2)) {
+      display: block;
+      height: 1px;
+      width: 45px;
+      background-color: #fff;
+      &::before,
+      &::after{
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 45px;
+        background-color: #fff;
+      }
+      &::before{
+        top: -10px;
+      }
+      &::after{
+        top: 10px;
+      }
+    }
   }
 
   &__menu {
     display: flex;
     align-items: center;
     gap: 42px;
+    
   }
 
   &__nav {
+    @media (max-width: ($md2)){
+      display: none;
+    }
   }
 
   &__list {
