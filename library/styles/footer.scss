@@ -81,6 +81,20 @@
 
   &__school {
     margin-left: 101px;
+    @media (max-width: ($md2)) {
+      margin-left: 48px;
+    }
+    &-large {
+      @media (max-width: ($md2)) {
+        display: none;
+      }
+    }
+    &-medium {
+      display: none;
+      @media (max-width: ($md2)) {
+        display: flex;
+      }
+    }
     a {
       color: $bgColor;
       transition: all 0.3s ease 0s;
