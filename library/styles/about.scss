@@ -43,12 +43,12 @@
 
   &__item {
     &-two {
-      @media (max-width: ($md2)){
+      @media (max-width: 1412px){
         display: none;
       }
     }
     &-three {
-      @media (max-width: ($md2)){
+      @media (max-width: 1412px){
         display: none;
       }
     }
@@ -65,7 +65,7 @@
     justify-content: center;
     align-items: center;
     margin: 35px 0px 0 0;
-    @media (max-width: $md2) {
+    @media (max-width: 1412px) {
       margin: 20px 0px 0 0;
     }
   }
@@ -79,13 +79,13 @@
     align-items: center;
     &-four {
       display: none;
-      @media (max-width: $md2) {
+      @media (max-width: 1412px) {
         display: flex;
       }
     }
     &-five {
       display: none;
-      @media (max-width: $md2) {
+      @media (max-width: 1412px) {
         display: flex;
       }
     }
@@ -93,7 +93,7 @@
 
   &__arrows {
     display: none;
-    @media (max-width: $md2) {
+    @media (max-width: 1412px) {
       position: absolute;
       width: 100%;
       top: 47.9%;
