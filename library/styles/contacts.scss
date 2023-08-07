@@ -71,6 +71,9 @@
         height: 477px;
         width: 710px;
       }
+      @media (max-width: 750px) {
+        width: 100%;
+      }
     }
   }
 }

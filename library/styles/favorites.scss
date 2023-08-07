@@ -22,6 +22,9 @@
     gap: 85px;
     padding: 42px 0px 39px;
     margin-left: -5px;
+    @media (max-width: 750px) {
+      gap: 40px;
+    }
   }
 
   &__button {
