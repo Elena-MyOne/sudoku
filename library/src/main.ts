@@ -1,5 +1,10 @@
 import './style.scss';
 import { form, name, card, submitForm, validateCardInput, validateNameInput } from './ts/form';
+import { burger, list, toggleMenu, closeMenu } from './ts/burger';
+
+burger?.addEventListener('click', toggleMenu);
+list?.addEventListener('click', toggleMenu);
+document.body.addEventListener('click', closeMenu);
 
 form.addEventListener('submit', submitForm);
 
