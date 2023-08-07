@@ -1,6 +1,9 @@
 .librarycard {
   &__body {
     padding: 58px 0px 40px;
+    @media (max-width: ($md2)) {
+      padding: 55px 0px 40px;
+    }
   }
 
   &__title {
@@ -13,6 +16,11 @@
     display: flex;
     gap: 40px;
     justify-content: space-between;
+    @media (max-width: ($md2)) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
   }
 
   &__reader {
@@ -92,6 +100,10 @@
   display: flex;
   flex-direction: column;
   gap: 35px;
+  @media (max-width: ($md2)) {
+    gap: 39px;
+    max-width: 544px;
+  }
 
   &__title {
     text-align: right;
@@ -99,6 +111,9 @@
     font-size: 30px;
     line-height: normal;
     letter-spacing: 0.6px;
+    @media (max-width: ($md2)) {
+      text-align: center;
+    }
   }
 
   &__text {
@@ -106,12 +121,18 @@
     font-size: 20px;
     line-height: 40px;
     letter-spacing: 0.4px;
+    @media (max-width: ($md2)) {
+      text-align: center;
+    }
   }
 
   &__buttons {
     display: flex;
     gap: 20px;
     justify-content: flex-end;
+    @media (max-width: ($md2)) {
+      justify-content: center;
+    }
   }
 
   &__button {

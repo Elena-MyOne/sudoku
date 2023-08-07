@@ -1,5 +1,10 @@
 import './style.scss';
 import { form, name, card, submitForm, validateCardInput, validateNameInput } from './ts/form';
+import { burger, list, toggleMenu, closeMenu } from './ts/burger';
+
+burger?.addEventListener('click', toggleMenu);
+list?.addEventListener('click', toggleMenu);
+document.body.addEventListener('click', closeMenu);
 
 form.addEventListener('submit', submitForm);
 
@@ -11,4 +16,4 @@ name.addEventListener('input', () => {
   validateNameInput(name);
 });
 
-console.log(`Вёрстка валидная +10\nВёрстка семантическая +16\nВёрстка соответствует макету +54\nОбщие требования к верстке +20\n\nПоля input в форме принимают только буквы и "-" (Reader's name) или только цифры и "-" (Card number)`)
+console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`)

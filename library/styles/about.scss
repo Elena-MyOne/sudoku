@@ -15,6 +15,10 @@
     font-size: 20px;
     line-height: 40px;
     padding: 20px 0px;
+    @media (max-width: $md2) {
+      max-width: 728px;
+      margin: 0 auto;
+    }
   }
 
   &__slider {
@@ -22,14 +26,38 @@
 }
 
 .slider {
+  @media (max-width: 1412px) {
+    position: relative;
+    max-width: 614px;
+    margin: 0 auto;
+  }
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 25px;
+    @media (max-width: 1412px) {
+      justify-content: center;
+    }
   }
 
   &__item {
+    &-two {
+      @media (max-width: 1412px){
+        display: none;
+      }
+    }
+    &-three {
+      @media (max-width: 1412px){
+        display: none;
+      }
+    }
+    &-four {
+      display: none;
+    }
+    &-five {
+      display: none;
+    }
   }
 
   &__pagination {
@@ -37,6 +65,9 @@
     justify-content: center;
     align-items: center;
     margin: 35px 0px 0 0;
+    @media (max-width: 1412px) {
+      margin: 20px 0px 0 0;
+    }
   }
 
   &__dot {
@@ -46,6 +77,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    &-four {
+      display: none;
+      @media (max-width: 1412px) {
+        display: flex;
+      }
+    }
+    &-five {
+      display: none;
+      @media (max-width: 1412px) {
+        display: flex;
+      }
+    }
+  }
+
+  &__arrows {
+    display: none;
+    @media (max-width: 1412px) {
+      position: absolute;
+      width: 100%;
+      top: 47.9%;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__arrow {
+    width: 24px;
+    height: 24px;
+    
+    &-left {
+      left: 10%;
+    }
+    &-right {
+      right: 0;
+    }
   }
 
   &__span {
