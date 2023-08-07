@@ -1,6 +1,9 @@
 .contacts {
   &__body {
     padding-top: 40px;
+    @media (max-width: ($md2)) {
+      padding-top: 37px;
+    }
   }
 
   &__title {
@@ -13,12 +16,8 @@
     display: flex;
     justify-content: space-between;
     gap: 40px;
-    @media (max-width: ($md2+px)) {
+    @media (max-width: ($md2)) {
       flex-direction: column;
-    }
-    iframe {
-      width: 696px;
-      height: 434px;
     }
   }
 
@@ -65,5 +64,13 @@
   }
 
   &__map {
+    iframe {
+      width: 696px;
+      height: 434px;
+      @media (max-width: ($md2)) {
+        height: 477px;
+        width: 710px;
+      }
+    }
   }
 }
