@@ -141,3 +141,34 @@
     }
   }
 }
+
+.register {
+  position: absolute;
+  top: 28;
+  right: 0;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 5px 9px 7px;
+  @media (max-width: ($md2)) {
+    right: 86px;
+  }
+  &__title {
+    font-weight: 700;
+    line-height: 16px;
+    margin-bottom: 7px;
+  }
+  &__line {
+    display: block;
+    height: 1px;
+    width: 40px;
+    background-color: $buttonsColor;
+    margin: 0 auto;
+  }
+  &__list {
+    margin-top: 15px;
+  }
+  &__item {
+    margin-bottom: 15px;
+  }
+}
