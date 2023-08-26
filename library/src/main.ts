@@ -6,6 +6,7 @@ import { form, name, card, submitForm, validateCardInput, validateNameInput } fr
 import { burger, list, toggleMenu, closeMenu } from './ts/burger';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import { buttons, handleFavoritesButtonsClick } from './ts/favorites';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
@@ -41,5 +42,7 @@ const swiper = new Swiper('.slider', {
     },
   },
 });
+
+buttons?.addEventListener('click', handleFavoritesButtonsClick);
 
 // console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`);
