@@ -2,6 +2,8 @@ import { burger, profile } from './burger';
 
 const register = document.querySelector('.register');
 const backRegister = document.querySelector('.header__back-register');
+export const registerHeaderLink = document.querySelector('.register__item-register') as HTMLElement;
+const LoginHeaderLink = document.querySelector('.register__item-login');
 
 export function toggleRegisterMenu(e: MouseEvent) {
   const target = e.target as HTMLElement;
@@ -13,7 +15,7 @@ export function toggleRegisterMenu(e: MouseEvent) {
 
 export function closeRegisterMenu(e: MouseEvent) {
   const target = e.target as HTMLElement;
-  if (target === burger || target === backRegister) {
+  if (target === burger || target === backRegister || target === registerHeaderLink || target === LoginHeaderLink) {
     register?.classList.remove('active');
     backRegister?.classList.remove('active');
   }

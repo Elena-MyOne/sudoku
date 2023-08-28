@@ -11,6 +11,7 @@ html {
 body {
   color: $mainTextColor;
   font-family: $fontFamily;
+  position: relative;
   @media (max-width: ($md3+px)) {
     &.lock {
       overflow: hidden;
@@ -44,12 +45,13 @@ body {
   }
 }
 
+@import '../styles/ui.scss';
 @import '../styles/header.scss';
 @import '../styles/welcome.scss';
-@import '../styles/ui.scss';
 @import '../styles/about.scss';
 @import '../styles/favorites.scss';
 @import '../styles/coffeshop.scss';
 @import '../styles/contacts.scss';
 @import '../styles/librarycard.scss';
 @import '../styles/footer.scss';
+@import '../styles/signup.scss';

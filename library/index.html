@@ -549,6 +549,51 @@
             </div>
           </div>
         </section>
+        <div class="signup">
+          <div class="signup__body">
+            <div class="signup__close">
+              <img src="./src/assets/images/icons/close_btn.svg" alt="close icon" />
+            </div>
+            <div class="signup__title">Register</div>
+            <form class="signup__form form-signup" id="signup">
+              <div class="form-signup__fields">
+                <div class="form-signup__field">
+                  <label class="form-signup__label form-label">
+                    <span class="form-signup__span">First name</span>
+                    <input class="form-signup__input form-input" name="name" />
+                  </label>
+                  <div class="form-signup__error form-error">Please enter the Name</div>
+                </div>
+                <div class="form-signup__field">
+                  <label class="form-signup__label form-label">
+                    <span class="form-signup__span">Last name</span>
+                    <input class="form-signup__input form-input" name="lastName" />
+                  </label>
+                  <div class="form-signup__error form-error">Please enter the Last Name</div>
+                </div>
+                <div class="form-signup__field">
+                  <label class="form-signup__label form-label">
+                    <span class="form-signup__span">E-mail</span>
+                    <input class="form-signup__input form-input" name="email" />
+                    <div class="form-signup__error form-error">Enter valid email (example@example.com)</div>
+                  </label>
+                </div>
+                <div class="form-signup__field">
+                  <label class="form-signup__label form-label">
+                    <span class="form-signup__span">Password</span>
+                    <input type="password" class="form-signup__input form-input" name="password" />
+                  </label>
+                  <div class="form-signup__error form-error">Password must be at least 8 symbols in length</div>
+                </div>
+              </div>
+              <button class="form-signup__submit form-button">Sign Up</button>
+            </form>
+            <div class="signup__login">
+              <p class="signup__text">Already have an account?</p>
+              <button class="signup__link">Login</button>
+            </div>
+          </div>
+        </div>
       </main>
 
       <footer class="footer">

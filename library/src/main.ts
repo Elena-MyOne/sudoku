@@ -9,11 +9,13 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { buttons, handleFavoritesButtonsClick } from './ts/favorites';
 import { profile } from './ts/burger';
 import { closeRegisterMenu, toggleRegisterMenu } from './ts/register';
+import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
 document.body.addEventListener('click', closeMenu);
 document.body.addEventListener('click', closeRegisterMenu);
+document.body.addEventListener('click', handleRegisterModal);
 
 form.addEventListener('submit', submitForm);
 
@@ -48,5 +50,6 @@ const swiper = new Swiper('.slider', {
 
 buttons?.addEventListener('click', handleFavoritesButtonsClick);
 profile?.addEventListener('click', toggleRegisterMenu);
+signupForm?.addEventListener('submit', handleSignupForm);
 
 // console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`);
