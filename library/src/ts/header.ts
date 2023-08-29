@@ -1,9 +1,10 @@
-import { closeRegisterMenu } from './register';
+import { userData } from '../interfaces/userData';
 
 export const burger = document.querySelector('.header__burger');
 const nav = document.querySelector('.header__nav');
 export const list = document.querySelector('.header__list') as HTMLElement;
 export const back = document.querySelector('.header__back') as HTMLElement;
+// export const profile = document.querySelector('.header__profile img') as HTMLElement;
 export const profile = document.querySelector('.header__profile') as HTMLElement;
 
 export const closeMenu = (e: MouseEvent) => {
@@ -24,3 +25,19 @@ export const toggleMenu = () => {
     back.classList.toggle('active');
   }
 };
+
+export function changeUserIconOnSignUp(user: userData) {
+  if (user.name && user.lastName) {
+    const letterOne = user.name[0].toUpperCase();
+    const letterTwo = user.lastName[0].toUpperCase();
+    profile.classList.add('signed-up');
+    profile.textContent = letterOne + letterTwo;
+    profile.setAttribute('title', `${user.name} ${user.lastName}`);
+  }
+}
+
+export function setDefaultUerIcon() {
+  profile.textContent = '';
+  profile.classList.remove('signed-up');
+  profile.setAttribute('title', '');
+}

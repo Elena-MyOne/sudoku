@@ -144,6 +144,20 @@
     &:hover {
       background: url('../src/assets/images/icons/profile-hover.svg') no-repeat center;
     }
+    // &.default {
+    //   transition: all 0.3s ease 0s;
+    //   background: url('../src/assets/images/icons/profile.svg') no-repeat center;
+    //   &:hover {
+    //     background: url('../src/assets/images/icons/profile-hover.svg') no-repeat center;
+    //   }
+    // }
+    &.signed-up {
+      background: #fff;
+      border-radius: 50%;
+      color: $buttonsColor;
+      text-align: center;
+      font-size: 15px;
+    }
   }
 }
 

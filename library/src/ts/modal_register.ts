@@ -1,5 +1,7 @@
 import { registerHeaderLink } from './register';
 import { closeModal, cleanForm, getUsersList, generateCardNumber } from './functions';
+import { userData } from '../interfaces/userData';
+import { changeUserIconOnSignUp } from './header';
 
 const registerLibraryCardLink = document.querySelector('.reader__button') as HTMLElement;
 const signupClose = document.querySelector('.signup__close img') as HTMLElement;
@@ -70,19 +72,22 @@ export function handleSignupForm(e: Event) {
   if (errors.length !== 0) {
     console.log('errors!');
     return;
+  } else {
+    const user = {
+      cardNumber: generateCardNumber(),
+      name: name.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value,
+      signUp: true,
+    };
+
+    usersList.forEach((item: userData) => (item.signUp = false));
+    usersList.push(user);
+
+    localStorage.setItem('userNlep', JSON.stringify(usersList));
+    cleanForm([name, lastName, email, password]);
+    closeModal(signupBack);
+    changeUserIconOnSignUp(user);
   }
-
-  const user = {
-    cardNumber: generateCardNumber(),
-    name: name.value,
-    lastName: lastName.value,
-    email: email.value,
-    password: password.value,
-  };
-
-  usersList.push(user);
-
-  localStorage.setItem('userNlep', JSON.stringify(usersList));
-  cleanForm([name, lastName, email, password]);
-  closeModal(signupBack);
 }

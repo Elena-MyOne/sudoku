@@ -1,4 +1,4 @@
-import { burger, profile } from './burger';
+import { burger, profile } from './header';
 
 const register = document.querySelector('.register');
 const backRegister = document.querySelector('.header__back-register');
