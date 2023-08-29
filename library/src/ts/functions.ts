@@ -12,6 +12,15 @@ export function getUsersList() {
   return JSON.parse(localStorage.getItem('userNlep') || '[]');
 }
 
+export function findSignUpUser() {
+  const usersList = getUsersList();
+  const user = usersList.filter((item: userData) => item.signUp === true);
+  if (user.length === 1) {
+    return user[0];
+  }
+  return [];
+}
+
 export function generateCardNumber() {
   const usersList = getUsersList();
   const random = parseInt(String(Math.random() * 10e8));

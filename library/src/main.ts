@@ -8,12 +8,9 @@ import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import { buttons, handleFavoritesButtonsClick } from './ts/favorites';
 import { profile } from './ts/header';
-import { closeRegisterMenu, toggleRegisterMenu } from './ts/register';
+import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogIn, toggleRegisterMenu } from './ts/register';
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
-import { getUsersList } from './ts/functions';
-import { userData } from './interfaces/userData';
-
-const usersList = getUsersList();
+import { findSignUpUser } from './ts/functions';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
@@ -55,10 +52,12 @@ const swiper = new Swiper('.slider', {
 buttons?.addEventListener('click', handleFavoritesButtonsClick);
 profile?.addEventListener('click', toggleRegisterMenu);
 signupForm?.addEventListener('submit', handleSignupForm);
+registerHeaderLink?.addEventListener('click', logOut);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const user = usersList.filter((item: userData) => item.signUp === true);
-  changeUserIconOnSignUp(user[0]);
+  const user = findSignUpUser();
+  changeUserIconOnSignUp(user);
+  renderRegisterMenuOnLogIn(user);
 });
 
 // console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`);

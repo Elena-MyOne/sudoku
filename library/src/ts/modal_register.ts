@@ -1,11 +1,11 @@
-import { registerHeaderLink } from './register';
+import { registerHeaderLink, renderRegisterMenuOnLogIn } from './register';
 import { closeModal, cleanForm, getUsersList, generateCardNumber } from './functions';
 import { userData } from '../interfaces/userData';
 import { changeUserIconOnSignUp } from './header';
 
 const registerLibraryCardLink = document.querySelector('.reader__button') as HTMLElement;
 const signupClose = document.querySelector('.signup__close img') as HTMLElement;
-const signupBack = document.querySelector('.signup') as HTMLElement;
+export const signupBack = document.querySelector('.signup') as HTMLElement;
 export const signupForm = document.forms.signup as HTMLFormElement;
 const signupFormErrors = document.querySelectorAll('.form-signup__error') as NodeListOf<HTMLDivElement>;
 
@@ -13,7 +13,8 @@ const usersList = getUsersList();
 
 export function handleRegisterModal(e: MouseEvent) {
   const target = e.target as HTMLElement;
-  if (target === registerLibraryCardLink || target === registerHeaderLink) {
+
+  if (target === registerLibraryCardLink || (target === registerHeaderLink && registerHeaderLink.textContent === 'Register')) {
     signupBack?.classList.add('active');
   }
 
@@ -89,5 +90,6 @@ export function handleSignupForm(e: Event) {
     cleanForm([name, lastName, email, password]);
     closeModal(signupBack);
     changeUserIconOnSignUp(user);
+    renderRegisterMenuOnLogIn(user);
   }
 }

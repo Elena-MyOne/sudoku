@@ -4,7 +4,6 @@ export const burger = document.querySelector('.header__burger');
 const nav = document.querySelector('.header__nav');
 export const list = document.querySelector('.header__list') as HTMLElement;
 export const back = document.querySelector('.header__back') as HTMLElement;
-// export const profile = document.querySelector('.header__profile img') as HTMLElement;
 export const profile = document.querySelector('.header__profile') as HTMLElement;
 
 export const closeMenu = (e: MouseEvent) => {
