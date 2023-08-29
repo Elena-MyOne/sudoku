@@ -1,7 +1,7 @@
 import { userData } from '../interfaces/userData';
-import { closeModal, findSignUpUser, getUsersList } from './functions';
+import { findSignUpUser, getUsersList } from './functions';
 import { burger, profile, setDefaultUerIcon } from './header';
-import { signupBack } from './modal_register';
+import { disableLibraryCardFormButton } from './libraryCardForm';
 
 const register = document.querySelector('.register');
 const backRegister = document.querySelector('.header__back-register');
@@ -56,6 +56,7 @@ export function logOut() {
       localStorage.setItem('userNlep', JSON.stringify(newUsersList));
       setTimeout(() => renderRegisterMenuOnLogIn(user), 500);
       setDefaultUerIcon();
+      disableLibraryCardFormButton();
     }
   }
 }
