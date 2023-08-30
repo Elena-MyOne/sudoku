@@ -11,7 +11,7 @@ import { profile } from './ts/header';
 import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogIn, toggleRegisterMenu } from './ts/register';
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
 import { findSignUpUser } from './ts/functions';
-import { handleRLodInModal } from './ts/modal_login';
+import { handleRLodInModal, logInForm, handleLodInForm } from './ts/modal_login';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     disableLibraryCardFormButton();
   }
 });
+
+logInForm?.addEventListener('submit', handleLodInForm);
 
 console.log(`! Digital Library Cards форма примимает номер карты в формате ЗАГЛАВНЫЕ буквы и цифры без пробелов\n\nПоле "Reader's name" принимает имя пользователя в формате "First name(тут пробел)Last Name", вне зависимости от регистра`);
 // console.log(``);

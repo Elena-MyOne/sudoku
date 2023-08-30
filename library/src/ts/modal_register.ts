@@ -24,7 +24,7 @@ export function handleRegisterModal(e: MouseEvent) {
   }
 }
 
-function showInputError(input: HTMLInputElement, errorDiv: HTMLDivElement): void {
+export function showInputError(input: HTMLInputElement, errorDiv: HTMLDivElement): void {
   if (input.value === '') {
     errorDiv?.classList.add('active');
     input.classList.add('error');
@@ -46,7 +46,7 @@ function validateEmail(input: HTMLInputElement, errorDiv: HTMLDivElement): void 
   }
 }
 
-function validatePassword(input: HTMLInputElement, errorDiv: HTMLDivElement): void {
+export function validatePassword(input: HTMLInputElement, errorDiv: HTMLDivElement): void {
   if (input.value.length < 8) {
     errorDiv?.classList.add('active');
     input.classList.add('error');
