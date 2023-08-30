@@ -2,7 +2,7 @@ import { registerHeaderLink, renderRegisterMenuOnLogIn } from './register';
 import { closeModal, cleanForm, getUsersList, generateCardNumber } from './functions';
 import { userData } from '../interfaces/userData';
 import { changeUserIconOnSignUp } from './header';
-import { enableLibraryCardFormButton, libraryCardFormButton } from './libraryCardForm';
+import { enableLibraryCardFormButton } from './libraryCardForm';
 
 const registerLibraryCardLink = document.querySelector('.reader__button') as HTMLElement;
 const signupClose = document.querySelector('.signup__close img') as HTMLElement;

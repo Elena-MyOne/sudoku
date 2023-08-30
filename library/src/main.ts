@@ -11,12 +11,14 @@ import { profile } from './ts/header';
 import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogIn, toggleRegisterMenu } from './ts/register';
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
 import { findSignUpUser } from './ts/functions';
+import { handleRLodInModal } from './ts/modal_login';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
 document.body.addEventListener('click', closeMenu);
 document.body.addEventListener('click', closeRegisterMenu);
 document.body.addEventListener('click', handleRegisterModal);
+document.body.addEventListener('click', handleRLodInModal);
 
 libraryCardForm.addEventListener('submit', submitForm);
 

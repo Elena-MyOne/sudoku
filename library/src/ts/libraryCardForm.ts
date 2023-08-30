@@ -9,7 +9,7 @@ const libraryCardInfo = document.querySelector('.info');
 const libraryCardTitle = document.querySelector('.reader__title') as HTMLElement;
 const libraryCardText = document.querySelector('.reader__text') as HTMLElement;
 const readerButtonSignup = document.querySelector('.reader__button-signup') as HTMLButtonElement;
-const readerButtonLogin = document.querySelector('.reader__button-login') as HTMLButtonElement;
+export const readerButtonLogin = document.querySelector('.reader__button-login') as HTMLButtonElement;
 const readerButtonProfile = document.querySelector('.reader__button-profile') as HTMLButtonElement;
 
 const user: userData = findSignUpUser();
