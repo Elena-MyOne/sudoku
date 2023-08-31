@@ -4,5 +4,5 @@ export interface userData {
   lastName: string;
   email: string;
   password: string;
-  signUp: boolean;
+  logIn: boolean;
 }

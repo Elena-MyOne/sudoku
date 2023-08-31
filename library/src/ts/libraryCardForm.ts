@@ -1,5 +1,5 @@
 import { userData } from '../interfaces/userData';
-import { cleanForm, findSignUpUser } from './functions';
+import { cleanForm, getUsersList } from './functions';
 
 export const libraryCardForm = document.querySelector('.form__form') as HTMLFormElement;
 export const name = libraryCardForm.name as unknown as HTMLInputElement;
@@ -12,7 +12,7 @@ const readerButtonSignup = document.querySelector('.reader__button-signup') as H
 export const readerButtonLogin = document.querySelector('.reader__button-login') as HTMLButtonElement;
 const readerButtonProfile = document.querySelector('.reader__button-profile') as HTMLButtonElement;
 
-const user: userData = findSignUpUser();
+const users = getUsersList();
 
 export const validateCardInput = (input: HTMLInputElement) => {
   if (input.value) {
@@ -34,7 +34,7 @@ export const disableLibraryCardFormButton = () => {
   libraryCardFormButton?.setAttribute('disabled', '');
 };
 
-const showLibraryCardInfo = () => {
+export const showLibraryCardInfo = () => {
   libraryCardFormButton?.classList.add('hidden');
   libraryCardInfo?.classList.remove('hidden');
   if (libraryCardTitle && libraryCardText) {
@@ -44,11 +44,9 @@ const showLibraryCardInfo = () => {
   readerButtonProfile?.classList.remove('hidden');
   readerButtonSignup?.classList.add('hidden');
   readerButtonLogin?.classList.add('hidden');
-
-  setTimeout(hideLibraryCardInfo, 10000);
 };
 
-const hideLibraryCardInfo = () => {
+export const hideLibraryCardInfo = () => {
   libraryCardFormButton?.classList.remove('hidden');
   libraryCardInfo?.classList.add('hidden');
   if (libraryCardTitle && libraryCardText) {
@@ -61,19 +59,23 @@ const hideLibraryCardInfo = () => {
   cleanForm([name, card]);
 };
 
-console.log(user);
-
 export const submitForm = (e: SubmitEvent) => {
   e.preventDefault();
-  const userName = `${user.name} ${user.lastName}`.toLocaleLowerCase();
-  const inputName = name.value.toLocaleLowerCase();
-  const userCardNumber = user.cardNumber;
-  const inputCardNumber = card.value;
+  const findUser = users.filter((user: userData) => user.cardNumber === card.value);
+  const [user] = findUser;
 
-  userName === inputName ? name.classList.remove('form__input-error') : name.classList.add('form__input-error');
-  userCardNumber === inputCardNumber ? card.classList.remove('form__input-error') : card.classList.add('form__input-error');
+  if (user) {
+    const userName = `${user.name} ${user.lastName}`.toLowerCase();
+    const inputName = name.value.toLowerCase();
+    const userCardNumber = user.cardNumber;
+    const inputCardNumber = card.value;
 
-  if (userName === inputName && userCardNumber === inputCardNumber) {
-    showLibraryCardInfo();
+    userName === inputName ? name.classList.remove('form__input-error') : name.classList.add('form__input-error');
+    userCardNumber === inputCardNumber ? card.classList.remove('form__input-error') : card.classList.add('form__input-error');
+
+    if (userName === inputName) {
+      showLibraryCardInfo();
+      setTimeout(hideLibraryCardInfo, 10000);
+    }
   }
 };

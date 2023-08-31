@@ -1,16 +1,15 @@
 import { userData } from '../interfaces/userData';
-import { findSignUpUser, getUsersList } from './functions';
+import { findLogInUser, getUsersList } from './functions';
 import { burger, profile, setDefaultUerIcon } from './header';
-import { disableLibraryCardFormButton } from './libraryCardForm';
+import { disableLibraryCardFormButton, hideLibraryCardInfo } from './libraryCardForm';
 
 const register = document.querySelector('.register');
 const backRegister = document.querySelector('.header__back-register');
 export const registerHeaderLink = document.querySelector('.register__item-register') as HTMLElement;
-const LoginHeaderLink = document.querySelector('.register__item-login');
 const title = document.querySelector('.register__title');
-const headerLogIn = document.querySelector('.register__item-login');
+export const headerLogIn = document.querySelector('.register__item-login');
 
-const user = findSignUpUser();
+const user = findLogInUser();
 
 export function toggleRegisterMenu(e: MouseEvent) {
   const target = e.target as HTMLElement;
@@ -22,7 +21,7 @@ export function toggleRegisterMenu(e: MouseEvent) {
 
 export function closeRegisterMenu(e: MouseEvent) {
   const target = e.target as HTMLElement;
-  if (target === burger || target === backRegister || target === registerHeaderLink || target === LoginHeaderLink) {
+  if (target === burger || target === backRegister || target === registerHeaderLink || target === headerLogIn) {
     register?.classList.remove('active');
     backRegister?.classList.remove('active');
   }
@@ -51,12 +50,13 @@ export function logOut() {
     if (usersList.length !== 0) {
       const newUsersList = usersList.map((item: userData) => ({
         ...item,
-        signUp: false,
+        logIn: false,
       }));
       localStorage.setItem('userNlep', JSON.stringify(newUsersList));
       setTimeout(() => renderRegisterMenuOnLogIn(user), 500);
       setDefaultUerIcon();
       disableLibraryCardFormButton();
+      hideLibraryCardInfo();
     }
   }
 }

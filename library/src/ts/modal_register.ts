@@ -2,12 +2,12 @@ import { registerHeaderLink, renderRegisterMenuOnLogIn } from './register';
 import { closeModal, cleanForm, getUsersList, generateCardNumber } from './functions';
 import { userData } from '../interfaces/userData';
 import { changeUserIconOnSignUp } from './header';
-import { enableLibraryCardFormButton } from './libraryCardForm';
+import { enableLibraryCardFormButton, showLibraryCardInfo } from './libraryCardForm';
 
 const registerLibraryCardLink = document.querySelector('.reader__button') as HTMLElement;
 const signupClose = document.querySelector('.signup__close img') as HTMLElement;
 export const signupBack = document.querySelector('.signup') as HTMLElement;
-export const signupForm = document.forms.signup as HTMLFormElement;
+export const signupForm = document.getElementById('signup') as HTMLFormElement;
 const signupFormErrors = document.querySelectorAll('.form-signup__error') as NodeListOf<HTMLDivElement>;
 
 const usersList = getUsersList();
@@ -69,8 +69,6 @@ export function handleSignupForm(e: Event) {
 
   const errors = Array.from(signupFormErrors).filter((item) => item.classList.contains('active'));
 
-  console.log('errors: ', errors);
-
   if (errors.length !== 0) {
     console.log('errors!');
     return;
@@ -81,10 +79,12 @@ export function handleSignupForm(e: Event) {
       lastName: lastName.value,
       email: email.value,
       password: password.value,
-      signUp: true,
+      logIn: true,
     };
 
-    usersList.forEach((item: userData) => (item.signUp = false));
+    usersList.forEach((item: userData) => {
+      item.logIn = false;
+    });
     usersList.push(user);
 
     localStorage.setItem('userNlep', JSON.stringify(usersList));
@@ -93,5 +93,6 @@ export function handleSignupForm(e: Event) {
     changeUserIconOnSignUp(user);
     renderRegisterMenuOnLogIn(user);
     enableLibraryCardFormButton();
+    showLibraryCardInfo();
   }
 }

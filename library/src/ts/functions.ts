@@ -12,9 +12,9 @@ export function getUsersList() {
   return JSON.parse(localStorage.getItem('userNlep') || '[]');
 }
 
-export function findSignUpUser() {
+export function findLogInUser() {
   const usersList = getUsersList();
-  const user = usersList.filter((item: userData) => item.signUp === true);
+  const user = usersList.filter((item: userData) => item.logIn === true);
   if (user.length === 1) {
     return user[0];
   }
