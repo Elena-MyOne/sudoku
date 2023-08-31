@@ -1,3 +1,5 @@
+import { userData } from '../interfaces/userData';
+import { getUsersList } from './functions';
 import { readerButtonLogin } from './libraryCardForm';
 import { showInputError, validatePassword } from './modal_register';
 import { headerLogIn } from './register';
@@ -24,8 +26,10 @@ export function handleLodInModal(e: MouseEvent) {
 
 export function toggleLoginModalCardsButtonOnClick(e: MouseEvent) {
   const target = e.target as HTMLElement;
+  const users = getUsersList();
+  const loggedInUsers = users.filter((item: userData) => item.logIn === true);
 
-  if (target.closest('.card__button')) {
+  if (target.closest('.card__button') && users.length !== 0 && loggedInUsers.length === 0) {
     logInModal?.classList.add('active');
   }
 }
