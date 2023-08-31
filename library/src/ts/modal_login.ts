@@ -1,10 +1,11 @@
 import { userData } from '../interfaces/userData';
-import { getUsersList } from './functions';
-import { readerButtonLogin } from './libraryCardForm';
+import { cleanForm, closeModal, getUsersList } from './functions';
+import { changeUserIconOnSignUp } from './header';
+import { readerButtonLogin, showLibraryCardInfo } from './libraryCardForm';
 import { showInputError, validatePassword } from './modal_register';
-import { headerLogIn } from './register';
+import { headerLogIn, renderRegisterMenuOnLogIn } from './register';
 
-const logInModal = document.querySelector('.login');
+const logInModal = document.querySelector('.login') as HTMLElement;
 const logInCloseButton = document.querySelector('.login__close img');
 const logInFormErrors = document.querySelectorAll('.form-login__error') as NodeListOf<HTMLDivElement>;
 export const logInForm = document.querySelector('.form-login') as HTMLFormElement;
@@ -38,4 +39,24 @@ export function handleLodInForm(e: Event) {
   e.preventDefault();
   showInputError(emailCardLogInInput, logInFormErrors[0]);
   validatePassword(passwordLogInInput, logInFormErrors[1]);
+
+  const users = getUsersList();
+
+  const user = users.filter((item: userData) => (item.password === passwordLogInInput.value && item.cardNumber === emailCardLogInInput.value) || item.email === emailCardLogInInput.value).pop();
+
+  console.log(users);
+  console.log(user);
+
+  if (user) {
+    const updatedUsers = users.map((item: userData) => (item === user ? { ...item, logIn: true } : item));
+
+    console.log(updatedUsers);
+
+    localStorage.setItem('userNlep', JSON.stringify(updatedUsers));
+    cleanForm([emailCardLogInInput, passwordLogInInput]);
+    closeModal(logInModal);
+    changeUserIconOnSignUp(user);
+    renderRegisterMenuOnLogIn(user);
+    showLibraryCardInfo();
+  }
 }
