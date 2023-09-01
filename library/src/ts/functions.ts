@@ -23,7 +23,7 @@ export function findLogInUser() {
 
 export function generateCardNumber() {
   const usersList = getUsersList();
-  const random = parseInt(String(Math.random() * 10e8));
+  const random = parseInt(String(Math.random() * 10e10));
   const cardsNumbers = usersList.length !== 0 ? usersList.filter((item: userData) => item.cardNumber) : [];
 
   if (cardsNumbers.includes(random)) {

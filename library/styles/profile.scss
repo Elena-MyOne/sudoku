@@ -68,6 +68,7 @@
     color: #000;
     line-height: 20px;
     text-transform: capitalize;
+    max-width: 120px;
   }
   &__icons {
     display: flex;
@@ -132,6 +133,7 @@
   }
   &__number {
     color: $buttonsColor;
+    width: 114px;
   }
 
   &__icon {

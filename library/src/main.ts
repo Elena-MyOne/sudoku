@@ -12,7 +12,7 @@ import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogI
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
 import { findLogInUser, getUsersList } from './ts/functions';
 import { handleLodInModal, logInForm, handleLodInForm, favoritesCards, toggleLoginModalCardsButtonOnClick } from './ts/modal_login';
-import { handleProfileModal } from './ts/modal_profile';
+import { handleProfileUserInfo, handleProfileModal, cardNumberCopy, copyCardNumber } from './ts/modal_profile';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const user = findLogInUser();
   changeUserIconOnSignUp(user);
   renderRegisterMenuOnLogIn(user);
+  handleProfileUserInfo();
   if (users.length !== 0) {
     enableLibraryCardFormButton();
   } else {
@@ -77,9 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 logInForm?.addEventListener('submit', handleLodInForm);
 favoritesCards?.addEventListener('click', toggleLoginModalCardsButtonOnClick);
+cardNumberCopy?.addEventListener('click', copyCardNumber);
 
 console.log(`! Digital Library Cards форма примимает номер карты в формате ЗАГЛАВНЫЕ буквы и цифры без пробелов\n\nПоле "Reader's name" принимает имя пользователя в формате "First name(тут пробел)Last Name", вне зависимости от регистра`);
 
-// console.log(``);
+// console.log(`B90 D4D C7D` );
+// console.log(const cardNumber = user.cardNumber; );
 
 // console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`);
