@@ -23,12 +23,13 @@ export function findLogInUser() {
 
 export function generateCardNumber() {
   const usersList = getUsersList();
-  const random = parseInt(String(Math.random() * 10e10));
+  const random = parseInt(String(Math.random() * 10e9));
   const cardsNumbers = usersList.length !== 0 ? usersList.filter((item: userData) => item.cardNumber) : [];
+  const result = random.toString(16).toUpperCase();
 
   if (cardsNumbers.includes(random)) {
     generateCardNumber();
   } else {
-    return random.toString(16).toUpperCase();
+    return result.length === 9 ? result : result + Math.random() * 10;
   }
 }

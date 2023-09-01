@@ -44,8 +44,10 @@ export function handleLodInForm(e: Event) {
 
   const user = users.filter((item: userData) => (item.password === passwordLogInInput.value && item.cardNumber === emailCardLogInInput.value) || item.email === emailCardLogInInput.value).pop();
 
+  const userVisits = user.visits + 1;
+
   if (user) {
-    const updatedUsers = users.map((item: userData) => (item === user ? { ...item, logIn: true } : item));
+    const updatedUsers = users.map((item: userData) => (item === user ? { ...item, logIn: true, visits: userVisits } : item));
     localStorage.setItem('userNlep', JSON.stringify(updatedUsers));
     cleanForm([emailCardLogInInput, passwordLogInInput]);
     closeModal(logInModal);

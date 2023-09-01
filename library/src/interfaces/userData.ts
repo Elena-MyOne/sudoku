@@ -5,4 +5,6 @@ export interface userData {
   email: string;
   password: string;
   logIn: boolean;
+  visits: number;
+  books: string[];
 }

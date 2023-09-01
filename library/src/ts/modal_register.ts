@@ -80,6 +80,8 @@ export function handleSignupForm(e: Event) {
       email: email.value,
       password: password.value,
       logIn: true,
+      visits: 1,
+      books: [],
     };
 
     usersList.forEach((item: userData) => {

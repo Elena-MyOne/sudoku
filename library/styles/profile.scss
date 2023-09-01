@@ -63,12 +63,13 @@
     margin-bottom: 15px;
   }
   &__name {
-    padding: 5px 15px;
+    padding: 5px;
+    text-align: center;
     background-color: #fff;
     color: #000;
     line-height: 20px;
     text-transform: capitalize;
-    max-width: 120px;
+    width: 120px;
   }
   &__icons {
     display: flex;
