@@ -12,6 +12,7 @@ import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogI
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
 import { findLogInUser, getUsersList } from './ts/functions';
 import { handleLodInModal, logInForm, handleLodInForm, favoritesCards, toggleLoginModalCardsButtonOnClick } from './ts/modal_login';
+import { handleProfileModal } from './ts/modal_profile';
 
 burger?.addEventListener('click', toggleMenu);
 list?.addEventListener('click', toggleMenu);
@@ -19,6 +20,7 @@ document.body.addEventListener('click', closeMenu);
 document.body.addEventListener('click', closeRegisterMenu);
 document.body.addEventListener('click', handleRegisterModal);
 document.body.addEventListener('click', handleLodInModal);
+document.body.addEventListener('click', handleProfileModal);
 
 libraryCardForm.addEventListener('submit', submitForm);
 
