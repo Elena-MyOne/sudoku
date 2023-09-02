@@ -704,6 +704,76 @@
             </div>
           </div>
         </div>
+        <div class="buycard">
+          <div class="buycard__body">
+            <div class="buycard__top">
+              <div class="buycard__title">Buy a library card</div>
+              <div class="buycard__close">
+                <img src="./src/assets/images/icons/close_btn-w.svg" alt="close icon" />
+              </div>
+            </div>
+            <div class="buycard__columns">
+              <div class="buycard__column">
+                <form class="buycard__form form-buycard">
+                  <div class="form-buycard__fields">
+                    <div class="form-buycard__field">
+                      <label class="form-buycard__label form-label">
+                        <span class="form-buycard__span">Bank card number</span>
+                        <input class="form-buycard__input form-input" name="number" />
+                      </label>
+                      <div class="form-buycard__error form-error">The Card Number should be 16 symbols in length</div>
+                    </div>
+                    <div class="form-buycard__field">
+                      <label class="form-buycard__label form-label">
+                        <span class="form-buycard__span">Expiration code</span>
+                        <div class="form-buycard__inputs">
+                          <input class="form-buycard__input form-buycard__input-expirtion form-input" name="exp1" maxlength="2" />
+                          <input class="form-buycard__input form-buycard__input-expirtion form-input" name="exp2" maxlength="2" />
+                        </div>
+                      </label>
+                      <div class="form-buycard__error form-error">Please enter Expiration code</div>
+                    </div>
+                    <div class="form-buycard__field">
+                      <label class="form-buycard__label form-label">
+                        <span class="form-buycard__span">CVC</span>
+                        <input class="form-buycard__input form-buycard__input-expirtion form-input" name="cvc" maxlength="3" />
+                      </label>
+                      <div class="form-buycard__error form-error">Please enter CVC</div>
+                    </div>
+                    <div class="form-buycard__field form-buycard__field-margin">
+                      <label class="form-buycard__label form-label">
+                        <span class="form-buycard__span">Cardholder name</span>
+                        <input class="form-buycard__input form-input" name="cardholder" />
+                      </label>
+                      <div class="form-buycard__error form-error">Please enter Cardholder name</div>
+                    </div>
+                    <div class="form-buycard__field">
+                      <label class="form-buycard__label form-label">
+                        <span class="form-buycard__span">Postal code</span>
+                        <input class="form-buycard__input form-input" name="postal" />
+                      </label>
+                      <div class="form-buycard__error form-error">Please enter Postal code</div>
+                    </div>
+                    <div class="form-buycard__field">
+                      <label class="form-buycard__label form-label">
+                        <span class="form-buycard__span">City / Town</span>
+                        <input class="form-buycard__input form-input" name="city" />
+                      </label>
+                      <div class="form-buycard__error form-error">Please enter City / Town</div>
+                    </div>
+                  </div>
+                  <div class="form-buycard__bottom">
+                    <button class="form-buycard__submit form-button">Buy</button>
+                    <div class="form-buycard__price">$ 25.00</div>
+                  </div>
+                </form>
+              </div>
+              <div class="buycard__column">
+                <p class="buycard__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
 
       <footer class="footer">
