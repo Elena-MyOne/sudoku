@@ -6,7 +6,7 @@ import { libraryCardForm, name, card, submitForm, validateCardInput, validateNam
 import { burger, list, toggleMenu, closeMenu, changeUserIconOnSignUp } from './ts/header';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-import { buttons, handleFavoritesButtonsClick } from './ts/favorites';
+import { buttons, handleFavoritesButtonsClick, handleBuyCardModel, formBuyCard, handleFormBuyCard, buyCardNumber, validateNumbersInput, buyCardExp1, buyCardExp2, buyCardCVC } from './ts/favorites';
 import { profile } from './ts/header';
 import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogIn, toggleRegisterMenu } from './ts/register';
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
@@ -21,6 +21,7 @@ document.body.addEventListener('click', closeRegisterMenu);
 document.body.addEventListener('click', handleRegisterModal);
 document.body.addEventListener('click', handleLodInModal);
 document.body.addEventListener('click', handleProfileModal);
+document.body.addEventListener('click', handleBuyCardModel);
 
 libraryCardForm.addEventListener('submit', submitForm);
 
@@ -30,6 +31,12 @@ card.addEventListener('input', () => {
 
 name.addEventListener('input', () => {
   validateNameInput(name);
+});
+
+[buyCardNumber, buyCardExp1, buyCardExp2, buyCardCVC].forEach((item: HTMLInputElement) => {
+  item.addEventListener('input', () => {
+    validateNumbersInput(buyCardNumber);
+  });
 });
 
 const swiper = new Swiper('.slider', {
@@ -79,10 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 logInForm?.addEventListener('submit', handleLodInForm);
 favoritesCards?.addEventListener('click', toggleLoginModalCardsButtonOnClick);
 cardNumberCopy?.addEventListener('click', copyCardNumber);
+formBuyCard?.addEventListener('submit', handleFormBuyCard);
 
 console.log(`! Digital Library Cards форма примимает номер карты в формате ЗАГЛАВНЫЕ буквы и цифры без пробелов\n\nПоле "Reader's name" принимает имя пользователя в формате "First name(тут пробел)Last Name", вне зависимости от регистра`);
-
-// console.log(`B90 D4D C7D` );
-// console.log(const cardNumber = user.cardNumber; );
 
 // console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`);
