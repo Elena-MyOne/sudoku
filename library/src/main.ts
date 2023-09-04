@@ -60,6 +60,8 @@ const swiper = new Swiper('.slider', {
   },
 });
 
+swiper;
+
 buttons?.addEventListener('click', handleFavoritesButtonsClick);
 profile?.addEventListener('click', toggleRegisterMenu);
 signupForm?.addEventListener('submit', handleSignupForm);
@@ -91,4 +93,4 @@ formBuyCard?.addEventListener('submit', handleFormBuyCard);
 
 console.log(`! Digital Library Cards форма примимает номер карты в формате ЗАГЛАВНЫЕ буквы и цифры без пробелов\n\nПоле "Reader's name" принимает имя пользователя в формате "First name(тут пробел)Last Name", вне зависимости от регистра`);
 
-// console.log(`Вёрстка соответствует макету. Ширина экрана 768px +26\n\nНи на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n\nВНа ширине экрана 768рх реализовано адаптивное меню +12`);
+console.log(`Выполнены все требования к функционалу: 200 баллов`);
