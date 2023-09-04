@@ -1,14 +1,8 @@
 .favorites {
-  &__body {
-  }
-
+  overflow: visible;
   &__title {
     padding-top: 36px;
   }
-
-  &__line {
-  }
-
   &__text {
     color: $mainTextColor;
     font-size: 20px;
@@ -22,6 +16,12 @@
     gap: 85px;
     padding: 42px 0px 39px;
     margin-left: -5px;
+    @media (max-width: ($md2)) {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 10;
+    }
     @media (max-width: 750px) {
       gap: 40px;
     }
@@ -29,9 +29,6 @@
 
   &__button {
     font-size: 20px;
-    &.active {
-      font-weight: 700;
-    }
   }
 
   &__input {
@@ -42,6 +39,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    cursor: pointer;
   }
 
   &__fake {
@@ -80,6 +78,7 @@
     column-gap: 221px;
     row-gap: 40px;
     padding-bottom: 40px;
+    height: 1186px;
     @media (max-width: ($md1)) {
       column-gap: 50px;
     }
@@ -90,23 +89,45 @@
       justify-items: center;
       margin-left: -41px;
       row-gap: 42px;
+      height: 2378px;
     }
     &.winter {
+      opacity: 1;
+      animation: fadeIn 0.8s ease;
     }
     &.spring {
       display: none;
+      opacity: 0;
+      animation: fadeIn 0.8s ease;
     }
     &.summer {
       display: none;
+      opacity: 0;
+      animation: fadeIn 0.8s ease;
     }
     &.autumn {
       display: none;
+      opacity: 0;
+      animation: fadeIn 0.8s ease;
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
 .favorites__input:checked + .favorites__fake::before {
   opacity: 1;
+}
+
+.favorites__input:checked + .favorites__fake + span {
+  font-weight: 700;
 }
 
 .card {

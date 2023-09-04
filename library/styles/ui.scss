@@ -42,4 +42,56 @@
   border: 1px $buttonsColor solid;
   padding: 8px 25px;
   cursor: pointer;
+  &:hover {
+    background-color: $bgColor;
+  }
+}
+
+.form-label {
+  color: #000;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-input {
+  border: 1px solid $buttonsColor;
+  width: 200px;
+  height: 20px;
+  padding: 5px 0px;
+  transition: all 0.3s ease 0s;
+  &.error {
+    border: 1px solid $errorColor;
+  }
+}
+
+.form-button {
+  color: #0c0c0e;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  padding: 8px 14px;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    background-color: $buttonsColor;
+    border: 1px $buttonsColor solid;
+  }
+}
+
+.form-error {
+  color: $errorColor;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: none;
+  line-height: 15px;
+  &.active {
+    display: block;
+  }
 }

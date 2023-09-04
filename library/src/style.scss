@@ -11,6 +11,7 @@ html {
 body {
   color: $mainTextColor;
   font-family: $fontFamily;
+  position: relative;
   @media (max-width: ($md3+px)) {
     &.lock {
       overflow: hidden;
@@ -21,7 +22,7 @@ body {
 .wrapper {
   min-height: 100%;
   width: $maxWidth;
-  overflow: hidden;
+  // overflow: hidden;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -44,12 +45,16 @@ body {
   }
 }
 
+@import '../styles/ui.scss';
 @import '../styles/header.scss';
 @import '../styles/welcome.scss';
-@import '../styles/ui.scss';
 @import '../styles/about.scss';
 @import '../styles/favorites.scss';
 @import '../styles/coffeshop.scss';
 @import '../styles/contacts.scss';
 @import '../styles/librarycard.scss';
 @import '../styles/footer.scss';
+@import '../styles/signup.scss';
+@import '../styles/login.scss';
+@import '../styles/profile.scss';
+@import '../styles/buycard.scss';

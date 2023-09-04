@@ -52,25 +52,25 @@
         position: relative;
         margin-top: -1px;
         &::before,
-        &::after{
+        &::after {
           position: absolute;
           content: '';
           height: 1px;
           width: 45px;
           background-color: #fff;
         }
-        &::before{
+        &::before {
           bottom: -10px;
         }
-        &::after{
+        &::after {
           bottom: -20px;
         }
       }
-      
     }
   }
 
-  &__back {
+  &__back,
+  &__back-register {
     display: none;
     &.active {
       display: block;
@@ -91,16 +91,18 @@
   }
 
   &__nav {
-    @media (max-width: ($md2)){
+    @media (max-width: ($md2)) {
+      display: none;
       position: absolute;
       right: -200%;
       top: -30px;
-      z-index: 11;
+      z-index: 51;
       transition: all 0.3s ease 0s;
       &.active {
+        display: block;
         right: -18%;
         top: -30px;
-        background-color: #0C0C0E;
+        background-color: #0c0c0e;
         width: 332px;
         padding: 115px 0px 100px;
       }
@@ -128,6 +130,10 @@
     }
   }
 
+  &__user {
+    z-index: 99;
+  }
+
   &__profile {
     display: block;
     width: 28px;
@@ -138,6 +144,56 @@
     &:hover {
       background: url('../src/assets/images/icons/profile-hover.svg') no-repeat center;
     }
-    
+    &.signed-up {
+      background: #fff;
+      border-radius: 50%;
+      color: $buttonsColor;
+      text-align: center;
+      font-size: 15px;
+    }
+  }
+}
+
+.register {
+  display: none;
+  position: absolute;
+  top: 31;
+  right: 0;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 5px 0px 7px;
+  width: 80px;
+  &.active {
+    display: block;
+  }
+  @media (max-width: ($md2)) {
+    right: 86px;
+  }
+  &__title {
+    font-weight: 700;
+    line-height: 16px;
+    margin-bottom: 7px;
+    &.signed-up {
+      font-size: 10px;
+    }
+  }
+  &__line {
+    display: block;
+    height: 1px;
+    width: 40px;
+    background-color: $buttonsColor;
+    margin: 0 auto;
+  }
+  &__list {
+    margin-top: 15px;
+  }
+  &__item {
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: $buttonsColor;
+    }
   }
 }

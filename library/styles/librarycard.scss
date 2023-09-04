@@ -83,6 +83,9 @@
     &:not(:first-child) {
       margin-bottom: 5px;
     }
+    &-error {
+      outline: 2px solid $errorColor;
+    }
   }
 
   &__button {
@@ -91,6 +94,9 @@
     font-size: 20px;
     letter-spacing: 1px;
     padding: 9px 40px;
+    &.hidden {
+      display: none;
+    }
   }
 }
 
@@ -138,5 +144,27 @@
   &__button {
     width: 75px;
     padding: 8px 10px;
+    &.hidden {
+      display: none;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 15px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+  }
+  &.hidden {
+    display: none;
   }
 }
