@@ -71,6 +71,22 @@ export function handleBuyCardModel(e: MouseEvent) {
   }
 }
 
+export function updateFavoritesButtonsState(buttons: NodeListOf<HTMLDivElement>, user: userData) {
+  if (user) {
+    const userBooksList = user.books.map((item) => item.book);
+
+    buttons.forEach((button) => {
+      if (button.dataset.book) {
+        if (userBooksList.includes(button.dataset.book)) {
+          button.setAttribute('disabled', '');
+          button.classList.add('button-own');
+          button.textContent = 'Own';
+        }
+      }
+    });
+  }
+}
+
 export function validateNumbersInput(input: HTMLInputElement) {
   const number = input.value;
   if (number) {
@@ -114,21 +130,5 @@ export function handleFormBuyCard(e: Event) {
     localStorage.setItem('userNlep', JSON.stringify(updatedUsers));
     cleanForm([buyCardNumber, buyCardExp1, buyCardExp2, buyCardCVC, buyCardCardholder, buyCardPostal, buyCardCity]);
     closeModal(buyCardModal);
-  }
-}
-
-export function updateFavoritesButtonsState(buttons: NodeListOf<HTMLDivElement>, user: userData) {
-  if (user) {
-    const userBooksList = user.books.map((item) => item.book);
-
-    buttons.forEach((button) => {
-      if (button.dataset.book) {
-        if (userBooksList.includes(button.dataset.book)) {
-          button.setAttribute('disabled', '');
-          button.classList.add('button-own');
-          button.textContent = 'Own';
-        }
-      }
-    });
   }
 }

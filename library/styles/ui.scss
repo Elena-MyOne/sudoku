@@ -42,6 +42,9 @@
   border: 1px $buttonsColor solid;
   padding: 8px 25px;
   cursor: pointer;
+  &:hover {
+    background-color: $bgColor;
+  }
 }
 
 .form-label {
