@@ -6,7 +6,7 @@ import { libraryCardForm, name, card, submitForm, validateCardInput, validateNam
 import { burger, list, toggleMenu, closeMenu, changeUserIconOnSignUp } from './ts/header';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-import { buttons, handleFavoritesButtonsClick, handleBuyCardModel, formBuyCard, handleFormBuyCard, buyCardNumber, validateNumbersInput, buyCardExp1, buyCardExp2, buyCardCVC } from './ts/favorites';
+import { buttons, handleFavoritesButtonsClick, handleBuyCardModel, formBuyCard, handleFormBuyCard, buyCardNumber, validateNumbersInput, buyCardExp1, buyCardExp2, buyCardCVC, cardButtons, updateFavoritesButtonsState } from './ts/favorites';
 import { profile } from './ts/header';
 import { closeRegisterMenu, logOut, registerHeaderLink, renderRegisterMenuOnLogIn, toggleRegisterMenu } from './ts/register';
 import { handleRegisterModal, handleSignupForm, signupForm } from './ts/modal_register';
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (user.logIn === true) {
     showLibraryCardInfo();
+    updateFavoritesButtonsState(cardButtons, user);
   } else {
     hideLibraryCardInfo();
   }

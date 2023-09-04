@@ -1,4 +1,5 @@
-import { findLogInUser, getUsersList } from './functions';
+import { userData } from '../interfaces/userData';
+import { cleanForm, closeModal, findLogInUser, getUsersList } from './functions';
 import { showInputError } from './modal_register';
 
 export const buttons = document.querySelector('.favorites__buttons') as HTMLElement;
@@ -14,6 +15,10 @@ export const buyCardCardholder = formBuyCard.cardholder as HTMLInputElement;
 export const buyCardPostal = formBuyCard.postal as HTMLInputElement;
 export const buyCardCity = formBuyCard.city as HTMLInputElement;
 const buycardErrorList = document.querySelectorAll('.form-buycard__error') as NodeListOf<HTMLDivElement>;
+export const cardButtons = document.querySelectorAll('.card__button') as NodeListOf<HTMLDivElement>;
+
+let book: string | undefined = '';
+let author: string | undefined = '';
 
 export function handleFavoritesButtonsClick(e: MouseEvent) {
   const target = e.target as HTMLElement;
@@ -36,6 +41,26 @@ export function handleBuyCardModel(e: MouseEvent) {
   const target = e.target as HTMLElement;
   const users = getUsersList();
   const loggedInUser = findLogInUser();
+
+  if (target.closest('.card__button')) {
+    book = target.dataset.book;
+    author = target.dataset.author;
+    if (loggedInUser.bankCardInfo === true) {
+      const user = users.filter((item: userData) => item.logIn === true).pop();
+
+      const booksList = user.books;
+      booksList.push({ book, author });
+
+      const updatedUsers = users.map((item: userData) => (item === user ? { ...item, books: booksList } : item));
+
+      localStorage.setItem('userNlep', JSON.stringify(updatedUsers));
+
+      target.setAttribute('disabled', '');
+      target.classList.add('button-own');
+      target.textContent = 'Own';
+      return;
+    }
+  }
 
   if (target.closest('.card__button') && users.length !== 0 && loggedInUser.length !== 0) {
     buyCardModal?.classList.add('active');
@@ -73,4 +98,37 @@ export function handleFormBuyCard(e: Event) {
   showInputError(buyCardCardholder, buycardErrorList[3]);
   showInputError(buyCardPostal, buycardErrorList[4]);
   showInputError(buyCardCity, buycardErrorList[5]);
+
+  const errors = Array.from(buycardErrorList).filter((item) => item.classList.contains('active'));
+
+  if (errors.length !== 0) {
+    console.log('Please, fill up Buy a Library card form');
+  } else {
+    const users = getUsersList();
+    const user = users.filter((item: userData) => item.logIn === true).pop();
+
+    const bankCardInfo = true;
+
+    const updatedUsers = users.map((item: userData) => (item === user ? { ...item, bankCardInfo, books: [{ book, author }] } : item));
+
+    localStorage.setItem('userNlep', JSON.stringify(updatedUsers));
+    cleanForm([buyCardNumber, buyCardExp1, buyCardExp2, buyCardCVC, buyCardCardholder, buyCardPostal, buyCardCity]);
+    closeModal(buyCardModal);
+  }
+}
+
+export function updateFavoritesButtonsState(buttons: NodeListOf<HTMLDivElement>, user: userData) {
+  if (user) {
+    const userBooksList = user.books.map((item) => item.book);
+
+    buttons.forEach((button) => {
+      if (button.dataset.book) {
+        if (userBooksList.includes(button.dataset.book)) {
+          button.setAttribute('disabled', '');
+          button.classList.add('button-own');
+          button.textContent = 'Own';
+        }
+      }
+    });
+  }
 }

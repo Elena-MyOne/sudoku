@@ -6,5 +6,6 @@ export interface userData {
   password: string;
   logIn: boolean;
   visits: number;
-  books: string[];
+  books: { book: string; author: string }[];
+  bankCardInfo?: boolean;
 }
