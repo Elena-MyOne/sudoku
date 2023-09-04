@@ -1,0 +1,164 @@
+.profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  &.active {
+    display: flex;
+  }
+  &__body {
+    background-color: #fff;
+    position: relative;
+  }
+  &__close {
+    position: absolute;
+    top: 23px;
+    right: 23px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__title {
+    font-family: Forum;
+    font-size: 40px;
+    line-height: 20px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  &__columns {
+    display: flex;
+  }
+  &__column {
+    &:first-child {
+      background-color: #0c0c0e;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0px 25px;
+    }
+    &:last-child {
+      padding: 40px 20px;
+    }
+  }
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $buttonsColor;
+    background-color: #fff;
+    margin-bottom: 15px;
+  }
+  &__name {
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    line-height: 20px;
+    text-transform: capitalize;
+    width: 120px;
+  }
+  &__icons {
+    display: flex;
+    gap: 20px;
+  }
+  &__icon {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+  }
+  &__count {
+    font-size: 10px;
+  }
+  &__rented {
+    margin-top: 20px;
+  }
+  &__subtitle {
+    color: #0c0c0e;
+    font-size: 25px;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+  &__books {
+    height: 50px;
+    width: 390px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+      background-color: #f9f9fd;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #595966;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background-color: #f9f9fd;
+    }
+  }
+  &__book {
+    margin-left: 11px;
+    position: relative;
+    padding-left: 19px;
+    width: 379px;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #000;
+      position: absolute;
+      top: 40%;
+      left: 0;
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.card-number {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+  font-size: 20px;
+  line-height: 20px;
+  &__text {
+    color: #0c0c0e;
+  }
+  &__number {
+    color: $buttonsColor;
+    width: 114px;
+  }
+
+  &__icon {
+    img {
+      margin-top: 4px;
+    }
+  }
+}

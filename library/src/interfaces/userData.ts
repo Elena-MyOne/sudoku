@@ -1,0 +1,11 @@
+export interface userData {
+  cardNumber: string | undefined;
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+  logIn: boolean;
+  visits: number;
+  books: { book: string; author: string }[];
+  bankCardInfo?: boolean;
+}
