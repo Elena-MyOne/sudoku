@@ -1,3 +1,4 @@
+import { userData } from '../interfaces/userData';
 import { findLogInUser } from './functions';
 import { headerLogIn } from './register';
 
@@ -10,6 +11,7 @@ const profileName = document.querySelector('.profile__name') as HTMLElement;
 const profileAvatar = document.querySelector('.profile__avatar') as HTMLElement;
 const visitsCount = document.querySelectorAll('.visits-count') as NodeListOf<HTMLElement>;
 const booksCount = document.querySelectorAll('.books-count') as NodeListOf<HTMLElement>;
+const profileBooks = document.querySelector('.profile__books') as HTMLElement;
 
 export function handleProfileModal(e: MouseEvent) {
   const target = e.target as HTMLElement;
@@ -33,6 +35,8 @@ export function handleProfileUserInfo() {
     profileAvatar.textContent = `${user.name[0]}${user.lastName[0]}`.toUpperCase();
     visitsCount.forEach((item) => (item.textContent = user.visits));
     booksCount.forEach((item) => (item.textContent = user.books.length));
+
+    renderBooksListItems(user);
   }
 }
 
@@ -50,4 +54,14 @@ export function copyCardNumber() {
     .catch((err) => {
       console.log('Something went wrong', err);
     });
+}
+
+function renderBooksListItems(user: userData) {
+  const booksList = user.books;
+
+  const booksItems = booksList.map((book) => {
+    return `<li class="profile__book">${book.book}, ${book.author}</li>`;
+  });
+
+  profileBooks.innerHTML = booksItems.join('');
 }
