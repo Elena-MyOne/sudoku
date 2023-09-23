@@ -67,14 +67,18 @@ function pauseTrack() {
   audio.pause();
   isPlaying = false;
   currentTimePlay = audio.currentTime;
+  console.log(currentTimePlay);
 }
 
 function setTrackCurrentTime() {
-  if (isPlaying) {
-    const time = audio.currentTime;
-    const timePast = getTimeCodeFromNum(time);
-    currentTime.textContent = timePast;
-  }
+  const time = audio.currentTime;
+  const timePast = getTimeCodeFromNum(time);
+  currentTime.textContent = timePast;
+  // if (isPlaying) {
+  //   const time = audio.currentTime;
+  //   const timePast = getTimeCodeFromNum(time);
+  //   currentTime.textContent = timePast;
+  // }
 }
 
 function updateProgressBar(e) {
@@ -88,9 +92,13 @@ function setProgressBar(e) {
   const clickX = e.offsetX;
   const duration = audio.duration;
 
-  if (isPlaying) {
-    audio.currentTime = (clickX / width) * duration;
-  }
+  audio.currentTime = (clickX / width) * duration;
+  currentTimePlay = (clickX / width) * duration;
+  setTrackCurrentTime();
+
+  // if (isPlaying) {
+  //   audio.currentTime = (clickX / width) * duration;
+  // }
 }
 
 setInterval(setTrackCurrentTime, 1000);
