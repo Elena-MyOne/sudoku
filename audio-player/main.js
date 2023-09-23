@@ -24,9 +24,11 @@ const artist = document.querySelector('.artist');
 const duration = document.querySelector('.duration');
 const currentTime = document.querySelector('.current-time');
 
-let track = 0;
-let time = '00:00';
 let isPlaying = false;
+
+let track = 0;
+let currentTimePlay = 0;
+let startTime = '00:00';
 
 const audio = new Audio();
 
@@ -36,7 +38,7 @@ const generateTrack = (currentTrack) => {
   artistCover.setAttribute('src', `${currentTrack.image}`);
   artist.textContent = `${currentTrack.artist}`;
   duration.textContent = `${currentTrack.duration}`;
-  currentTime.textContent = time;
+  currentTime.textContent = startTime;
   audio.src = currentTrack.src;
 };
 
@@ -52,9 +54,9 @@ const handleTrack = () => {
 
 const playTrack = () => {
   playButton.innerHTML = pause;
-  audio.currentTime = 0;
+  audio.currentTime = currentTimePlay;
   audio.play();
-  time = '00:00';
+  startTime = '00:00';
   isPlaying = true;
 };
 
@@ -62,6 +64,7 @@ const pauseTrack = () => {
   playButton.innerHTML = play;
   audio.pause();
   isPlaying = false;
+  currentTimePlay = audio.currentTime;
 };
 
 playButton.addEventListener('click', handleTrack);

@@ -10,7 +10,7 @@ export const TRACKS = [
   },
   {
     id: 2,
-    src: 'https://github.com/rolling-scopes-school/elena-myone-JSFEPRESCHOOL2023Q2/blob/audio-player/audio-player/assets/audio/2.Hands_of_Attrition_-_Solace.mp3',
+    src: './assets/audio/2.Hands_of_Attrition_-_Solace.mp3',
     image: './assets/images/2.jpg',
     background: './assets/images/22.jpg',
     duration: '06:00',
@@ -19,7 +19,7 @@ export const TRACKS = [
   },
   {
     id: 3,
-    src: 'https://github.com/rolling-scopes-school/elena-myone-JSFEPRESCHOOL2023Q2/blob/audio-player/audio-player/assets/audio/3.Metal_Child_-_Avenger_Kills.mp3',
+    src: './assets/audio/3.Metal_Child_-_Avenger_Kills.mp3',
     image: './assets/images/3.jpg',
     background: './assets/images/33.webp',
     duration: '04:35',
@@ -28,7 +28,7 @@ export const TRACKS = [
   },
   {
     id: 4,
-    src: 'https://github.com/rolling-scopes-school/elena-myone-JSFEPRESCHOOL2023Q2/blob/audio-player/audio-player/assets/audio/3.Metal_Child_-_Avenger_Kills.mp3',
+    src: './assets/audio/3.Metal_Child_-_Avenger_Kills.mp3',
     image: './assets/images/4.jpg',
     background: './assets/images/44.jpg',
     duration: '04:35',
@@ -37,7 +37,7 @@ export const TRACKS = [
   },
   {
     id: 5,
-    src: 'https://github.com/rolling-scopes-school/elena-myone-JSFEPRESCHOOL2023Q2/blob/audio-player/audio-player/assets/audio/3.Metal_Child_-_Avenger_Kills.mp3',
+    src: './assets/audio/3.Metal_Child_-_Avenger_Kills.mp3',
     image: './assets/images/5.jpg',
     background: './assets/images/55.jpg',
     duration: '03:53',
@@ -46,7 +46,7 @@ export const TRACKS = [
   },
   {
     id: 6,
-    src: 'https://github.com/rolling-scopes-school/elena-myone-JSFEPRESCHOOL2023Q2/blob/audio-player/audio-player/assets/audio/6._Nothing_To_Fear_-_Hide_amp_Dream.mp3',
+    src: './assets/audio/6._Nothing_To_Fear_-_Hide_amp_Dream.mp3',
     image: '../assets/images/6.jpg',
     background: '../assets/images/66.jpg',
     duration: '03:08',
