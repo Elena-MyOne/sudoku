@@ -1,4 +1,5 @@
 import { TRACKS } from './tracks.js';
+import { getTimeCodeFromNum } from './utils/getTimeCodeFromNumber.js';
 
 const play = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
@@ -23,6 +24,8 @@ const playButton = document.querySelector('.play-button');
 const artist = document.querySelector('.artist');
 const duration = document.querySelector('.duration');
 const currentTime = document.querySelector('.current-time');
+const barContainer = document.querySelector('.bar-container');
+const bar = document.querySelector('.bar');
 
 let isPlaying = false;
 
@@ -38,35 +41,62 @@ const generateTrack = (currentTrack) => {
   artistCover.setAttribute('src', `${currentTrack.image}`);
   artist.textContent = `${currentTrack.artist}`;
   duration.textContent = `${currentTrack.duration}`;
-  currentTime.textContent = startTime;
   audio.src = currentTrack.src;
 };
 
 generateTrack(TRACKS[track]);
 
-const handleTrack = () => {
+function handleTrack() {
   if (isPlaying) {
     pauseTrack();
   } else {
     playTrack();
   }
-};
+}
 
-const playTrack = () => {
+function playTrack() {
   playButton.innerHTML = pause;
   audio.currentTime = currentTimePlay;
   audio.play();
   startTime = '00:00';
   isPlaying = true;
-};
+}
 
-const pauseTrack = () => {
+function pauseTrack() {
   playButton.innerHTML = play;
   audio.pause();
   isPlaying = false;
   currentTimePlay = audio.currentTime;
-};
+}
+
+function setTrackCurrentTime() {
+  if (isPlaying) {
+    const time = audio.currentTime;
+    const timePast = getTimeCodeFromNum(time);
+    currentTime.textContent = timePast;
+  }
+}
+
+function updateProgressBar(e) {
+  const { duration, currentTime } = e.srcElement;
+  const progressPercent = (currentTime / duration) * 100;
+  bar.style.width = `${progressPercent}%`;
+}
+
+function setProgressBar(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+
+  if (isPlaying) {
+    audio.currentTime = (clickX / width) * duration;
+  }
+}
+
+setInterval(setTrackCurrentTime, 1000);
 
 playButton.addEventListener('click', handleTrack);
+audio.addEventListener('timeupdate', updateProgressBar);
+barContainer.addEventListener('click', setProgressBar);
 
 console.log(TRACKS);
