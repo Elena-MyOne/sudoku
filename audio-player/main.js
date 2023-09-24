@@ -127,6 +127,7 @@ function playNextTrack() {
   currentTimePlay = 0;
   generateTrack(TRACKS[track]);
   playTrack();
+  setActivePlayListItem();
 }
 
 function playPrevTrack() {
@@ -134,6 +135,7 @@ function playPrevTrack() {
   currentTimePlay = 0;
   generateTrack(TRACKS[track]);
   playTrack();
+  setActivePlayListItem();
 }
 
 function mutedAudio() {
