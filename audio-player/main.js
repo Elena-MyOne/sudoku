@@ -26,6 +26,8 @@ const duration = document.querySelector('.duration');
 const currentTime = document.querySelector('.current-time');
 const barContainer = document.querySelector('.bar-container');
 const bar = document.querySelector('.bar');
+const prevTrack = document.querySelector('.prev-button');
+const nextTrack = document.querySelector('.next-button');
 
 let isPlaying = false;
 
@@ -67,18 +69,12 @@ function pauseTrack() {
   audio.pause();
   isPlaying = false;
   currentTimePlay = audio.currentTime;
-  console.log(currentTimePlay);
 }
 
 function setTrackCurrentTime() {
   const time = audio.currentTime;
   const timePast = getTimeCodeFromNum(time);
   currentTime.textContent = timePast;
-  // if (isPlaying) {
-  //   const time = audio.currentTime;
-  //   const timePast = getTimeCodeFromNum(time);
-  //   currentTime.textContent = timePast;
-  // }
 }
 
 function updateProgressBar(e) {
@@ -91,14 +87,25 @@ function setProgressBar(e) {
   const width = this.clientWidth;
   const clickX = e.offsetX;
   const duration = audio.duration;
+  const timeStamp = (clickX / width) * duration;
 
-  audio.currentTime = (clickX / width) * duration;
-  currentTimePlay = (clickX / width) * duration;
+  audio.currentTime = timeStamp;
+  currentTimePlay = timeStamp;
   setTrackCurrentTime();
+}
 
-  // if (isPlaying) {
-  //   audio.currentTime = (clickX / width) * duration;
-  // }
+function playNextTrack() {
+  track < 5 ? (track += 1) : (track = 0);
+  currentTimePlay = 0;
+  generateTrack(TRACKS[track]);
+  playTrack();
+}
+
+function playPrevTrack() {
+  track <= 0 ? (track = 5) : (track -= 1);
+  currentTimePlay = 0;
+  generateTrack(TRACKS[track]);
+  playTrack();
 }
 
 setInterval(setTrackCurrentTime, 1000);
@@ -106,5 +113,7 @@ setInterval(setTrackCurrentTime, 1000);
 playButton.addEventListener('click', handleTrack);
 audio.addEventListener('timeupdate', updateProgressBar);
 barContainer.addEventListener('click', setProgressBar);
+nextTrack.addEventListener('click', playNextTrack);
+prevTrack.addEventListener('click', playPrevTrack);
 
 console.log(TRACKS);
