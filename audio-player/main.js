@@ -24,22 +24,22 @@ const playButton = document.querySelector('.play-button');
 const artist = document.querySelector('.artist');
 const duration = document.querySelector('.duration');
 const currentTime = document.querySelector('.current-time');
-const barContainer = document.querySelector('.bar-container');
+const barSlider = document.querySelector('.bar-slider');
 const bar = document.querySelector('.bar');
 const prevTrack = document.querySelector('.prev-button');
 const nextTrack = document.querySelector('.next-button');
 const volumeIcon = document.querySelector('.volume-icon');
-const volumeContainer = document.querySelector('.volume-container');
 const volumeBar = document.querySelector('.volume-bar');
+const volumeSlider = document.querySelector('.volume-slider');
 
 let isPlaying = false;
 
 let track = 0;
 let currentTimePlay = 0;
-let startTime = '00:00';
 
 const audio = new Audio();
 audio.volume = 0.5;
+volumeSlider.value = 50;
 
 const generateTrack = (currentTrack) => {
   background.setAttribute('src', `${currentTrack.background}`);
@@ -64,7 +64,6 @@ function playTrack() {
   playButton.innerHTML = pause;
   audio.currentTime = currentTimePlay;
   audio.play();
-  startTime = '00:00';
   isPlaying = true;
 }
 
@@ -85,17 +84,19 @@ function updateProgressBar(e) {
   const { duration, currentTime } = e.srcElement;
   const progressPercent = (currentTime / duration) * 100;
   bar.style.width = `${progressPercent}%`;
+  barSlider.value = progressPercent;
 }
 
 function setProgressBar(e) {
-  const width = this.clientWidth;
-  const clickX = e.offsetX;
-  const duration = audio.duration;
-  const timeStamp = (clickX / width) * duration;
+  const newTime = (this.value / 100) * audio.duration;
+  audio.currentTime = newTime;
+  currentTimePlay = newTime;
+}
 
-  audio.currentTime = timeStamp;
-  currentTimePlay = timeStamp;
-  setTrackCurrentTime();
+function setVolumeBar(e) {
+  const volumeValue = this.value / 100;
+  audio.volume = volumeValue;
+  volumeBar.style.width = `${this.value}%`;
 }
 
 function playNextTrack() {
@@ -122,24 +123,12 @@ function mutedAudio() {
   }
 }
 
-function setVolumeBar(e) {
-  const width = this.clientWidth;
-  const clickX = e.offsetX;
-  const progressPercent = (clickX / width) * 100;
-  audio.volume = clickX / width;
-  volumeBar.style.width = `${progressPercent}%`;
-
-  console.log(progressPercent);
-}
-
 setInterval(setTrackCurrentTime, 1000);
 
 playButton.addEventListener('click', handleTrack);
 audio.addEventListener('timeupdate', updateProgressBar);
-barContainer.addEventListener('click', setProgressBar);
+barSlider.addEventListener('input', setProgressBar);
 nextTrack.addEventListener('click', playNextTrack);
 prevTrack.addEventListener('click', playPrevTrack);
 volumeIcon.addEventListener('click', mutedAudio);
-volumeContainer.addEventListener('click', setVolumeBar);
-
-console.log(TRACKS);
+volumeSlider.addEventListener('input', setVolumeBar);
