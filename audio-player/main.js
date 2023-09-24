@@ -31,6 +31,7 @@ const nextTrack = document.querySelector('.next-button');
 const volumeIcon = document.querySelector('.volume-icon');
 const volumeBar = document.querySelector('.volume-bar');
 const volumeSlider = document.querySelector('.volume-slider');
+const playlist = document.querySelector('.playlist');
 
 let isPlaying = false;
 
@@ -51,6 +52,28 @@ const generateTrack = (currentTrack) => {
 };
 
 generateTrack(TRACKS[track]);
+
+const renderPlayList = () => {
+  const playlistItems = TRACKS.map(
+    (item) => `<li class="playlist-item" data-id="${item.id}">${item.name} - ${item.artist}<li/>`
+  ).join('');
+  playlist.innerHTML = `${playlistItems}`;
+  setActivePlayListItem();
+};
+
+renderPlayList();
+
+function setActivePlayListItem() {
+  const playlistItems = document.querySelectorAll('.playlist-item');
+  if (playlistItems.length !== 0) {
+    playlistItems.forEach((item) => {
+      item.classList.remove('active');
+      if (item.dataset.id == track + 1) {
+        item.classList.add('active');
+      }
+    });
+  }
+}
 
 function handleTrack() {
   if (isPlaying) {
@@ -123,6 +146,17 @@ function mutedAudio() {
   }
 }
 
+function setActiveTrack(e) {
+  const target = e.target;
+  if (target.classList.contains('playlist-item')) {
+    track = target.dataset.id - 1;
+    currentTimePlay = 0;
+    generateTrack(TRACKS[track]);
+    playTrack();
+    setActivePlayListItem();
+  }
+}
+
 setInterval(setTrackCurrentTime, 1000);
 
 playButton.addEventListener('click', handleTrack);
@@ -132,3 +166,8 @@ nextTrack.addEventListener('click', playNextTrack);
 prevTrack.addEventListener('click', playPrevTrack);
 volumeIcon.addEventListener('click', mutedAudio);
 volumeSlider.addEventListener('input', setVolumeBar);
+playlist.addEventListener('click', setActiveTrack);
+
+console.log(
+  `Извеняюсь за выбор музыки, мне нравиться потяжелее. \n\nДополнительный не предусмотренный в задании функционал: 1. Есть возможность настраивать громкость(по умолчанию стоить на 50%) \n2. Можно отключить звук, если кликнуть на соотвествующую иконку \n3.Отображается список треков \n4.Если кликнуть на любой из треков в списке он выделяется как активный и начинает проигрываться`
+);
