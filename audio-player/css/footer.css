@@ -1,0 +1,33 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--main-bg-color);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+  padding: 0px 10px;
+}
+
+.logo {
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.logo-image {
+  width: 80px;
+}
+
+.github a {
+  color: #fff;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    opacity: 0.5;
+  }
+}

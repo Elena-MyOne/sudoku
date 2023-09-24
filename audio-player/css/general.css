@@ -1,0 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Keania+One:regular);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300,700,900);
+
+@import './reset.css';
+@import './variables.css';
+
+@import './footer.css';
+@import './player.css';

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <title>Audio player</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <img src="./assets/images/back.jpg" class="background"></img>
+
+      <main class="main">
+        <div class="player">
+          <h1 class="title"></h1>
+          <img class="artist-cover" src="./assets/images/back.jpg" alt="artist cover image">
+          <div class="artist"></div>
+          <div class="buttons">
+            <button class="prev-button"><img src="./assets/images/icons/previous.svg" alt="pay previous"></button>
+            <button class="play-button">
+              <img src="./assets/images/icons/play.svg" alt="pay or pause">
+            </button>
+            <button class="next-button">
+              <img src="./assets/images/icons/next.svg" alt="pay next">
+            </button>
+          </div>
+          <div class="bottom">
+            <div class="progress">
+              <div class="bar-container">
+                <div class="bar"></div>
+                <input type="range" min="1" max="100" value="0" class="bar-slider">
+              </div>
+              <div class="time">
+                <div class="current-time">00:00</div>
+                <div class="duration">00:00</div>
+              </div>
+            </div>
+            <div class="volume">
+              <div class="volume-container">
+                <div class="volume-bar"></div>
+                <input type="range" min="1" max="100" value="0" class="volume-slider">
+              </div>
+              <div class="volume-icon">
+                <img src="./assets/images/icons/volume.svg" alt="volume icon">
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="playlist"></ul>
+      </main>
+
+      <footer class="footer">
+        <a class="logo" href="https://rs.school/js-stage0/" target="_blank">
+          <img class="logo-image" src="./assets/images/icons/rslogo-w.svg" alt="RS logo" />
+        </a>
+        <div class="github">
+          <a href="https://github.com/Elena-MyOne" target="_blank">elena-myone</a>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
