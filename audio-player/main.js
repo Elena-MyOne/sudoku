@@ -28,6 +28,7 @@ const barContainer = document.querySelector('.bar-container');
 const bar = document.querySelector('.bar');
 const prevTrack = document.querySelector('.prev-button');
 const nextTrack = document.querySelector('.next-button');
+const volumeIcon = document.querySelector('.volume-icon');
 
 let isPlaying = false;
 
@@ -108,6 +109,16 @@ function playPrevTrack() {
   playTrack();
 }
 
+function mutedAudio() {
+  if (audio.muted) {
+    audio.muted = false;
+    volumeIcon.innerHTML = volume;
+  } else {
+    audio.muted = true;
+    volumeIcon.innerHTML = volumeOff;
+  }
+}
+
 setInterval(setTrackCurrentTime, 1000);
 
 playButton.addEventListener('click', handleTrack);
@@ -115,5 +126,6 @@ audio.addEventListener('timeupdate', updateProgressBar);
 barContainer.addEventListener('click', setProgressBar);
 nextTrack.addEventListener('click', playNextTrack);
 prevTrack.addEventListener('click', playPrevTrack);
+volumeIcon.addEventListener('click', mutedAudio);
 
 console.log(TRACKS);
