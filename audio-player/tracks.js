@@ -47,8 +47,8 @@ export const TRACKS = [
   {
     id: 6,
     src: './assets/audio/6._Nothing_To_Fear_-_Hide_amp_Dream.mp3',
-    image: '../assets/images/6.jpg',
-    background: '../assets/images/66.jpg',
+    image: './assets/images/6.jpg',
+    background: './assets/images/66.jpg',
     duration: '03:08',
     artist: 'Hide Dream',
     name: 'Nothing To Fear',
