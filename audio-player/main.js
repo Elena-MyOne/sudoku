@@ -29,6 +29,8 @@ const bar = document.querySelector('.bar');
 const prevTrack = document.querySelector('.prev-button');
 const nextTrack = document.querySelector('.next-button');
 const volumeIcon = document.querySelector('.volume-icon');
+const volumeContainer = document.querySelector('.volume-container');
+const volumeBar = document.querySelector('.volume-bar');
 
 let isPlaying = false;
 
@@ -37,6 +39,7 @@ let currentTimePlay = 0;
 let startTime = '00:00';
 
 const audio = new Audio();
+audio.volume = 0.5;
 
 const generateTrack = (currentTrack) => {
   background.setAttribute('src', `${currentTrack.background}`);
@@ -119,6 +122,16 @@ function mutedAudio() {
   }
 }
 
+function setVolumeBar(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const progressPercent = (clickX / width) * 100;
+  audio.volume = clickX / width;
+  volumeBar.style.width = `${progressPercent}%`;
+
+  console.log(progressPercent);
+}
+
 setInterval(setTrackCurrentTime, 1000);
 
 playButton.addEventListener('click', handleTrack);
@@ -127,5 +140,6 @@ barContainer.addEventListener('click', setProgressBar);
 nextTrack.addEventListener('click', playNextTrack);
 prevTrack.addEventListener('click', playPrevTrack);
 volumeIcon.addEventListener('click', mutedAudio);
+volumeContainer.addEventListener('click', setVolumeBar);
 
 console.log(TRACKS);
