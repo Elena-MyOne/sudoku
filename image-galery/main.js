@@ -8,26 +8,31 @@ const searchInput = document.querySelector('.search-input');
 const searchIcon = document.querySelector('.search-icon');
 
 async function getImages(search) {
-  const response = await fetch(
-    `${URL}search/photos?query=${search}&per_page=12&orientation=landscape&client_id=${ACC_KEY}&w=400&h=200`
-  );
-  const data = await response.json();
-  const images = data.results;
+  try {
+    const response = await fetch(
+      `${URL}search/photos?query=${search}&per_page=12&orientation=landscape&client_id=${ACC_KEY}&w=400&h=200`
+    );
 
-  console.log(images);
+    const data = await response.json();
+    const images = data.results;
 
-  const imagesItems = images
-    .map(
-      (item) =>
-        `
-          <div class="images">
-          <img class="image" src=${item.urls.small} alt=${item.alt_description} />
-          </div>
-        `
-    )
-    .join('');
+    console.log(images);
 
-  main.innerHTML = imagesItems;
+    const imagesItems = images
+      .map(
+        (item) =>
+          `
+            <div class="images">
+            <img class="image" src=${item.urls.small} alt=${item.alt_description} />
+            </div>
+          `
+      )
+      .join('');
+
+    main.innerHTML = imagesItems;
+  } catch (error) {
+    main.innerHTML = `<div class="error">Something goes wrong, please try again later</div>`;
+  }
 }
 
 getImages(search);

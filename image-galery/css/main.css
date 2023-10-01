@@ -16,3 +16,10 @@
   object-fit: cover;
   border-radius: 5px;
 }
+
+.error {
+  text-align: center;
+  color: #e61414;
+  grid-column: span 3;
+  padding: 20px 0px;
+}
