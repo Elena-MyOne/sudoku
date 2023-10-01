@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,regular,italic,500,700,900);
+
+@import './css/reset.css';
+@import './css/footer.css';
+
+.wrapper {
+  background-color: #222;
+  font-weight: 300;
+  font-size: 18px;
+}
