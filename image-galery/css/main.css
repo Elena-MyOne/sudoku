@@ -1,0 +1,25 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px auto;
+}
+
+.images {
+  width: 400px;
+}
+
+.image {
+  display: block;
+  width: 400px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.error {
+  text-align: center;
+  color: #e61414;
+  grid-column: span 3;
+  padding: 20px 0px;
+}
