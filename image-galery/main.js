@@ -6,6 +6,7 @@ let search = 'all';
 const main = document.querySelector('.main');
 const searchInput = document.querySelector('.search-input');
 const searchIcon = document.querySelector('.search-icon');
+const closeIcon = document.querySelector('.close-icon');
 
 async function getImages(search) {
   try {
@@ -46,7 +47,22 @@ function focusInput() {
   searchInput.focus();
 }
 
+function toggleCoseIcon() {
+  const value = searchInput.value;
+  value !== '' ? closeIcon.classList.add('active') : closeIcon.classList.remove('active');
+}
+
+function hideCoseIcon() {
+  closeIcon.classList.remove('active');
+  searchInput.value = '';
+  focusInput();
+}
+
 window.addEventListener('DOMContentLoaded', focusInput);
+
+searchInput.addEventListener('input', toggleCoseIcon);
+
+closeIcon.addEventListener('click', hideCoseIcon);
 
 searchIcon.addEventListener('click', getSearchImages);
 searchInput.addEventListener('keydown', function (e) {
