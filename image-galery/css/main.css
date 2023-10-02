@@ -1,4 +1,8 @@
 .main {
+  margin: 0px auto;
+}
+
+.cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -22,4 +26,50 @@
   color: #e61414;
   grid-column: span 3;
   padding: 20px 0px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 30px auto;
+  gap: 10px;
+}
+
+.button {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-1.active,
+.button-2.active,
+.button-3.active,
+.button-4.active {
+  border: 2px solid var(--main-hover-color);
+  color: #000;
+  background-color: var(--main-hover-color);
+  font-weight: 500;
+}
+
+.hidden {
+  display: none;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.prev.disable,
+.next.disable {
+  opacity: 0.4;
 }
