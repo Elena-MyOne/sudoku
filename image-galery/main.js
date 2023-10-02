@@ -42,6 +42,12 @@ function getSearchImages(e) {
   getImages(value);
 }
 
+function focusInput() {
+  searchInput.focus();
+}
+
+window.addEventListener('DOMContentLoaded', focusInput);
+
 searchIcon.addEventListener('click', getSearchImages);
 searchInput.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') {
