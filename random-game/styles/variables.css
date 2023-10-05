@@ -1,0 +1,6 @@
+:root {
+  --main-bg-color: #222;
+  --main-font-color: #fff;
+  --main-hover-color: #f5a;
+  --transition: all 0.3s ease 0s;
+}
