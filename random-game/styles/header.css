@@ -1,9 +1,31 @@
 .header {
   padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Black Ops One', serif;
 }
 
 .logo {
   color: var(--main-hover-color);
   font-size: 2em;
-  font-family: 'Black Ops One', serif;
+}
+
+.header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  color: var(--main-hover-color);
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.rules,
+.statistic {
+  cursor: pointer;
+  transition: var(--transition);
+  &:hover {
+    opacity: 0.7;
+  }
 }
