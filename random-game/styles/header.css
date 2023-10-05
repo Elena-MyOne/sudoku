@@ -1,0 +1,9 @@
+.header {
+  padding: 20px 10px;
+}
+
+.logo {
+  color: var(--main-hover-color);
+  font-size: 2em;
+  font-family: 'Black Ops One', serif;
+}
