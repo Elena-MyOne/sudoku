@@ -78,5 +78,48 @@
 }
 
 .board {
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  border: 1px solid var(--ceil-color);
+  background-color: var(--ceil-color);
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.digits {
   max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+}
+
+.ceil,
+.number {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--ceil-color);
+  border-radius: 5px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  border: 1px solid var(--main-hover-color);
+}
+
+.moves-count,
+.time-count {
+  color: var(--main-hover-color);
+  font-weight: 500;
+  font-size: 1.1em;
+  font-family: 'Black Ops One', serif;
 }
