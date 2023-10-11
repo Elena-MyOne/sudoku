@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 10px;
-  background-color: #111;
+  background-color: var(--secondary-bg-color);
 }
 
 .logo {
@@ -11,7 +11,7 @@
   cursor: pointer;
   transition: var(--transition);
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 }
 
@@ -20,11 +20,12 @@
 }
 
 .github a {
-  color: var(--main-font-color);
+  color: var(--main-hover-color);
+  font-family: 'Black Ops One', serif;
   cursor: pointer;
   font-weight: 400;
   transition: var(--transition);
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
   }
 }

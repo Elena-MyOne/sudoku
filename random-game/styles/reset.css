@@ -88,6 +88,7 @@ body {
   color: var(--main-font-color);
   position: relative;
   background-color: var(--main-bg-color);
+  background: url('../assets/images/back.png') center / cover no-repeat;
 }
 
 .wrapper {
@@ -104,4 +105,5 @@ body {
 .main {
   flex: 1 1 auto;
   padding: 0px 10px;
+  background-color: rgba(51, 51, 51, 0.4);
 }
