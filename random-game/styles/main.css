@@ -83,34 +83,43 @@
 }
 
 .board {
-  width: 450px;
-  height: 450px;
+  width: 454px;
+  height: 454px;
   margin: 0 auto;
   border: 1px solid var(--ceil-color);
   background-color: var(--ceil-color);
   cursor: pointer;
   border-radius: 5px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 1px;
 }
 
 .digits {
-  max-width: 500px;
+  max-width: 450px;
   margin: 0 auto;
   display: flex;
-  gap: 40px;
-  justify-content: center;
+  gap: 5px;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   height: 50px;
-  background-color: var(--ceil-color);
 }
 
-.ceil,
-.number {
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--ceil-color);
+.digit {
+  background-color: var(--ceil-color);
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--main-bg3-color);
+}
+
+.ceil {
+  width: 49px;
+  height: 49px;
+  border: 2px solid var(--main-bg3-color);
   border-radius: 5px;
   font-weight: 500;
   display: flex;

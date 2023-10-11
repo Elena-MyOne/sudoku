@@ -1,3 +1,5 @@
+import { populateBoardGame } from './buildGame.js';
+
 const levels = document.querySelectorAll('.level');
 
 const LEVEL = {
@@ -103,8 +105,10 @@ export function initBoardGame() {
   console.log('Solution Board:');
   console.log(solutionBoard);
 
-  console.log('Game Board:');
-  console.log(gameBoard);
+  // console.log('Game Board:');
+  // console.log(gameBoard);
+
+  populateBoardGame(gameBoard);
 }
 
 export function setGameLevel(e) {

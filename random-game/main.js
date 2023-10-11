@@ -1,5 +1,6 @@
 import { showMovesCount } from './js/moves.js';
 import { initBoardGame, setGameLevel } from './js/board.js';
+import { populateDigits } from './js/buildGame.js';
 
 const levelsContainer = document.querySelector('.levels');
 
@@ -8,6 +9,7 @@ let selectedCeil = null;
 
 function initGame() {
   showMovesCount();
+  populateDigits();
   initBoardGame();
 }
 
