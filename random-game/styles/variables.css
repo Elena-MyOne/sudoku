@@ -2,10 +2,10 @@
   --main-bg-color: #222;
   --secondary-bg-color: rgba(34, 34, 34, 0.9);
   --ceil-color: #16120f;
-  --active-ceil-color: #bb383b;
-  --main-bg2-color: rgba(253, 205, 79, 0.55);
+  --main-bg2-color: rgba(253, 205, 79, 0.6);
   --main-bg3-color: rgba(253, 205, 79, 0.2);
   --main-font-color: #ffffff;
   --main-hover-color: rgb(253, 205, 79);
   --transition: all 0.3s ease 0s;
+  --error: rgba(187, 56, 59, 0.3);
 }

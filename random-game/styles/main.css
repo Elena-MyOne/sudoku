@@ -52,7 +52,7 @@
 }
 
 .level,
-.hints,
+.erase,
 .sound {
   transition: var(--transition);
   background: var(--secondary-bg-color);
@@ -65,7 +65,7 @@
   }
 }
 
-.hints.active,
+.erase.active,
 .level.active,
 .sound.active {
   background-color: var(--main-bg2-color);
@@ -73,7 +73,7 @@
 
 .sound {
   width: 40px;
-  height: 35px;
+  height: 36px;
   background: var(--secondary-bg-color) url('../assets/images/volume_off.svg') center / contain
     no-repeat;
 }
@@ -101,7 +101,7 @@
   max-width: 450px;
   margin: 0 auto;
   display: flex;
-  gap: 2px;
+  gap: 5px;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -110,20 +110,25 @@
 
 .digit {
   background-color: var(--ceil-color);
-  padding: 9px 14px;
+  padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid var(--main-bg2-color);
   transition: var(--transition);
   &:hover {
-    border: 2px solid var(--active-ceil-color);
-    background-color: var(--active-ceil-color);
+    border: 2px solid var(--main-hover-color);
+    background-color: var(--main-hover-color);
   }
 }
 
 .digit.active {
-  border: 2px solid var(--active-ceil-color);
-  background-color: var(--active-ceil-color);
+  border: 2px solid var(--main-hover-color);
+  background-color: var(--main-hover-color);
+  color: var(--main-bg-color);
+}
+
+.edit {
+  color: var(--main-hover-color);
 }
 
 .ceil {
@@ -137,9 +142,32 @@
   align-items: center;
   transition: var(--transition);
   &:hover {
-    border: 2px solid var(--active-ceil-color);
-    background-color: var(--active-ceil-color);
+    border: 2px solid var(--main-hover-color);
+    background-color: var(--main-hover-color);
+    color: var(--main-bg-color);
   }
+}
+
+.ceil.active {
+  border: 2px solid var(--main-hover-color);
+  background-color: var(--main-hover-color);
+  color: var(--main-bg-color);
+}
+
+.ceil.error {
+  border: 2px solid var(--error);
+  background-color: var(--error);
+  color: var(--main-hover-color);
+  transition: var(--transition);
+  &:hover {
+    border: 2px solid var(--main-hover-color);
+    background-color: var(--main-hover-color);
+    color: var(--main-bg-color);
+  }
+}
+
+.ceil.error.active {
+  border: 2px solid var(--main-hover-color);
 }
 
 .ceil-border-right {

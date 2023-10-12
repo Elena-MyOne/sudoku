@@ -13,7 +13,7 @@ const easyOpenNumbers = 38;
 const mediumOpenNumbers = 30;
 const hardOpenNumbers = 24;
 
-let solutionBoard = null;
+export let solutionBoard = null;
 let gameBoard = null;
 
 function defineGameLevel() {
