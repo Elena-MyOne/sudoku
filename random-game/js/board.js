@@ -13,19 +13,24 @@ const easyOpenNumbers = 38;
 const mediumOpenNumbers = 30;
 const hardOpenNumbers = 24;
 
+export let gameLevel = null;
+
 export let solutionBoard = null;
 let gameBoard = null;
 
-function defineGameLevel() {
+export function defineGameLevel() {
   for (const level of levels) {
     if (level.classList.contains('active')) {
       if (level.classList.contains(LEVEL.EASY)) {
+        gameLevel = 'Easy';
         return easyOpenNumbers;
       }
       if (level.classList.contains(LEVEL.MEDIUM)) {
+        gameLevel = 'Medium';
         return mediumOpenNumbers;
       }
       if (level.classList.contains(LEVEL.HARD)) {
+        gameLevel = 'Hard';
         return hardOpenNumbers;
       }
     }

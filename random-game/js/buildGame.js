@@ -1,12 +1,16 @@
 import { solutionBoard } from './board.js';
+import { openSuccessPopUp } from './popUps.js';
 
 export const digits = document.querySelector('.digits');
 const board = document.querySelector('.board');
 const eraseButton = document.querySelector('.erase');
-const movesCount = document.querySelector('.moves-count');
+const movesCount = document.querySelectorAll('.moves-count');
+export const solveButton = document.querySelector('.solve');
+export const timeCount = document.querySelector('.time-count');
 
 let moves = 0;
 let selectedDigit = 1;
+let isGameComplete = false;
 
 export function populateBoardGame(gameBoard) {
   board.innerHTML = '';
@@ -73,6 +77,7 @@ function fillUpCeil(e) {
     activateEraseButton();
 
     checkErrors(target);
+    // checkGameComplete(ceils);
   }
 }
 
@@ -82,16 +87,26 @@ function checkErrors(target) {
   const col = Number(ceilPosition[1]);
 
   if (solutionBoard[row][col] != target.textContent) {
-    // target.classList.remove('active');
     target.classList.add('error');
   } else {
-    // target.classList.add('active');
     target.classList.remove('error');
   }
 }
 
+// function checkGameComplete() {
+//   const ceils = document.querySelectorAll('.ceil');
+//   const edits = [...ceils].filter((item) => item.textContent === '');
+
+//   if (edits.length === 0) {
+//     const result = edits.filter((item) => !item.classList.contains('error'));
+//     return result.length === 0;
+//   }
+
+//   return false;
+// }
+
 export function showMovesCount() {
-  movesCount.innerHTML = moves;
+  movesCount.forEach((item) => (item.innerHTML = moves));
 }
 
 function activateEraseButton() {
@@ -109,6 +124,19 @@ function easeCeil() {
   });
 }
 
+function endTheGame() {
+  populateBoardGame(solutionBoard);
+
+  moves = 81;
+  showMovesCount();
+
+  isGameComplete = true;
+  openSuccessPopUp();
+
+  // console.log(checkGameComplete());
+}
+
 digits.addEventListener('click', selectDigit);
 board.addEventListener('click', fillUpCeil);
 eraseButton.addEventListener('click', easeCeil);
+solveButton.addEventListener('click', endTheGame);

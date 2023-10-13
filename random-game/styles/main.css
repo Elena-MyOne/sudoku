@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .game {
@@ -41,7 +42,7 @@
 }
 
 .info-bar {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   gap: 40px;
@@ -69,6 +70,19 @@
 .level.active,
 .sound.active {
   background-color: var(--main-bg2-color);
+}
+
+.solve {
+  transition: var(--transition);
+  background: var(--error);
+  border: 2px solid var(--error);
+  color: var(--main-font-color);
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .sound {
@@ -127,6 +141,10 @@
   color: var(--main-bg-color);
 }
 
+/* .digit.disable {
+  opacity: 0.2;
+} */
+
 .edit {
   color: var(--main-hover-color);
 }
@@ -155,9 +173,8 @@
 }
 
 .ceil.error {
-  border: 2px solid var(--error);
-  background-color: var(--error);
-  color: var(--main-hover-color);
+  color: var(--error);
+  font-weight: 500;
   transition: var(--transition);
   &:hover {
     border: 2px solid var(--main-hover-color);
@@ -168,6 +185,7 @@
 
 .ceil.error.active {
   border: 2px solid var(--main-hover-color);
+  background-color: var(--main-bg-color);
 }
 
 .ceil-border-right {
