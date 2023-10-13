@@ -169,6 +169,11 @@
   }
 }
 
+.ceil.hovered {
+  background-color: var(--main-bg3-color);
+  color: var(--main-font-color);
+}
+
 .ceil.active {
   border: 2px solid var(--main-hover-color);
   background-color: var(--main-hover-color);

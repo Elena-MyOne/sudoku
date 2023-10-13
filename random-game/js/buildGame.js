@@ -10,7 +10,6 @@ export const timeCount = document.querySelector('.time-count');
 
 export let moves = 0;
 let selectedDigit = 1;
-let isGameComplete = false;
 
 export function populateBoardGame(gameBoard) {
   board.innerHTML = '';
@@ -19,7 +18,7 @@ export function populateBoardGame(gameBoard) {
     for (let col = 0; col < 9; col += 1) {
       let ceil = document.createElement('div');
       ceil.id = `${row}-${col}`;
-      ceil.classList.add('ceil');
+      ceil.classList.add('ceil', 'solved');
       if (col === 2 || col === 5) {
         ceil.classList.add('ceil-border-right');
       }
@@ -30,6 +29,7 @@ export function populateBoardGame(gameBoard) {
 
       if (gameBoard[row][col] === 0) {
         ceil.classList.add('edit');
+        ceil.classList.remove('solved');
       }
 
       board.append(ceil);
@@ -47,6 +47,7 @@ export function populateDigits() {
 
     if (i === 1) {
       digit.classList.add('active');
+      hoverCeil(digit);
     }
   }
 }
@@ -55,12 +56,26 @@ function selectDigit(e) {
   const target = e.target;
 
   const digitList = document.querySelectorAll('.digit');
+
   digitList.forEach((item) => item.classList.remove('active'));
 
   if (target.closest('.digit')) {
     target.classList.add('active');
     selectedDigit = target.id;
+    hoverCeil(target);
   }
+}
+
+function hoverCeil(target) {
+  const ceils = document.querySelectorAll('.ceil');
+
+  ceils.forEach((item) => {
+    if (item.textContent === target.id) {
+      item.classList.add('hovered');
+    } else {
+      item.classList.remove('hovered');
+    }
+  });
 }
 
 function fillUpCeil(e) {
@@ -77,7 +92,13 @@ function fillUpCeil(e) {
     activateEraseButton();
 
     checkErrors(target);
-    // checkGameComplete(ceils);
+
+    const isGameComplete = checkGameComplete(ceils);
+
+    if (isGameComplete) {
+      openSuccessPopUp();
+      return;
+    }
   }
 }
 
@@ -88,22 +109,20 @@ function checkErrors(target) {
 
   if (solutionBoard[row][col] != target.textContent) {
     target.classList.add('error');
+    target.classList.remove('solved');
   } else {
     target.classList.remove('error');
+    target.classList.add('solved');
   }
 }
 
-// function checkGameComplete() {
-//   const ceils = document.querySelectorAll('.ceil');
-//   const edits = [...ceils].filter((item) => item.textContent === '');
-
-//   if (edits.length === 0) {
-//     const result = edits.filter((item) => !item.classList.contains('error'));
-//     return result.length === 0;
-//   }
-
-//   return false;
-// }
+function checkGameComplete(ceils) {
+  const result = [...ceils].filter((item) => item.classList.contains('solved'));
+  if (result.length === 81) {
+    return true;
+  }
+  return false;
+}
 
 export function showMovesCount() {
   movesCount.forEach((item) => (item.innerHTML = moves));
@@ -129,11 +148,7 @@ function endTheGame() {
 
   moves = 81;
   showMovesCount();
-
-  isGameComplete = true;
   openSuccessPopUp();
-
-  // console.log(checkGameComplete());
 }
 
 export function resetMovesCount() {
