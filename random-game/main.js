@@ -1,6 +1,6 @@
 import { initBoardGame, setGameLevel } from './js/board.js';
 import { populateDigits, digits, showMovesCount, solveButton } from './js/buildGame.js';
-import { close } from './js/popUps.js';
+import { successPopUp } from './js/popUps.js';
 
 const levelsContainer = document.querySelector('.levels');
 
