@@ -1,5 +1,6 @@
-import { timeCount } from './buildGame.js';
+import { timeCount, resetMovesCount } from './buildGame.js';
 import { gameLevel, initBoardGame } from './board.js';
+import { resetTimer } from './timer.js';
 
 const close = document.querySelector('.close img');
 export const successPopUp = document.querySelector('.success');
@@ -20,6 +21,8 @@ function closeSuccessPopUp(e) {
   if (target === close || target === successPopUp) {
     successPopUp.classList.remove('active');
     initBoardGame();
+    resetMovesCount();
+    resetTimer();
   }
 }
 

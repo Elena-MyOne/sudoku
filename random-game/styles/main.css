@@ -45,11 +45,12 @@
   max-width: 600px;
   margin: 0 auto;
   display: flex;
-  gap: 40px;
+  gap: 20px;
   justify-content: space-between;
   align-items: center;
   text-align: center;
   padding: 20px;
+  font-size: 0.9em;
 }
 
 .level,
@@ -124,6 +125,7 @@
 
 .digit {
   background-color: var(--ceil-color);
+  font-size: 1.2em;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
@@ -155,6 +157,7 @@
   border: 2px solid var(--main-bg3-color);
   border-radius: 5px;
   font-weight: 500;
+  font-size: 1.2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,4 +209,9 @@
   font-weight: 500;
   font-size: 1.1em;
   font-family: 'Black Ops One', serif;
+}
+
+.time,
+.moves {
+  width: 130px;
 }

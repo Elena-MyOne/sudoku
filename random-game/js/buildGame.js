@@ -8,7 +8,7 @@ const movesCount = document.querySelectorAll('.moves-count');
 export const solveButton = document.querySelector('.solve');
 export const timeCount = document.querySelector('.time-count');
 
-let moves = 0;
+export let moves = 0;
 let selectedDigit = 1;
 let isGameComplete = false;
 
@@ -134,6 +134,11 @@ function endTheGame() {
   openSuccessPopUp();
 
   // console.log(checkGameComplete());
+}
+
+export function resetMovesCount() {
+  moves = 0;
+  showMovesCount();
 }
 
 digits.addEventListener('click', selectDigit);

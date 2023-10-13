@@ -1,4 +1,5 @@
-import { populateBoardGame } from './buildGame.js';
+import { populateBoardGame, moves, showMovesCount, resetMovesCount } from './buildGame.js';
+import { resetTimer } from './timer.js';
 
 const levels = document.querySelectorAll('.level');
 
@@ -139,5 +140,7 @@ export function setGameLevel(e) {
   ) {
     target.classList.add('active');
     initBoardGame();
+    resetTimer();
+    resetMovesCount();
   }
 }
