@@ -5,6 +5,7 @@ const resultsPopUp = document.querySelector('.results');
 const resultsClose = document.querySelector('.results-close img');
 const resultsLevelButtons = document.querySelectorAll('.button');
 const resultsButtonsContainer = document.querySelector('.results-buttons');
+const resultsItems = document.querySelector('.results-items');
 
 let resultsLevel = gameLevel;
 
@@ -19,6 +20,7 @@ function removeActiveClass(item) {
 function openResultsPopUp() {
   addActiveClass(resultsPopUp);
   setDefaultActiveButton();
+  populateResultsTable(gameLevel);
 }
 
 function closeResultsPopUp(e) {
@@ -45,7 +47,42 @@ function setActiveButtonOnClick(e) {
   ) {
     addActiveClass(target);
     resultsLevel = target.textContent;
+    populateResultsTable(resultsLevel);
   }
+}
+
+//TODO============================================
+function populateResultsTable(level) {
+  const results = localStorage.getItem('SudokuBRE');
+  const data = JSON.parse(results);
+
+  createResultsItem(data, resultsItems, level);
+}
+
+function createResultsItem(items, resultsItems, level) {
+  if (items == null) {
+    resultsItems.innerHTML = `
+    <div class="results-item">
+    <div class="results-number">-</div>
+    <div class="results-moves">-</div>
+    <div class="results-time">-</div>
+  </div>
+    `;
+    return;
+  }
+
+  resultsItems.innerHTML = items
+    .filter((item) => item.level === level)
+    .map((elem) => {
+      return `
+      <div id="${elem.id}" class="results-item">
+        <div class="results-number">${elem.id}</div>
+        <div class="results-moves">${elem.moves}</div>
+        <div class="results-time">${elem.time}</div>
+    </div>
+      `;
+    })
+    .join('');
 }
 
 resultsButton.addEventListener('click', openResultsPopUp);

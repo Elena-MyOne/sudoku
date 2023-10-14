@@ -150,7 +150,6 @@ function easeCeil() {
 
 function endTheGame() {
   populateBoardGame(solutionBoard);
-
   moves = 81;
   showMovesCount();
   openSuccessPopUp();
@@ -166,7 +165,7 @@ export function saveResultToLS() {
   const previousResult = localStorage.getItem('SudokuBRE');
   const data = JSON.parse(previousResult);
 
-  let id = data == null ? 1 : data.length;
+  let id = data == null ? 1 : data.length + 1;
   const result = { id, moves, time: timeCount.textContent, level: gameLevel };
 
   if (data == null) {
