@@ -1,4 +1,4 @@
-import { solutionBoard } from './board.js';
+import { solutionBoard, gameLevel } from './board.js';
 import { openSuccessPopUp } from './popUps.js';
 
 export const digits = document.querySelector('.digits');
@@ -101,6 +101,7 @@ function fillUpCeil(e) {
 
     if (isGameComplete) {
       openSuccessPopUp();
+      saveResultToLS();
       return;
     }
   }
@@ -153,11 +154,29 @@ function endTheGame() {
   moves = 81;
   showMovesCount();
   openSuccessPopUp();
+  saveResultToLS();
 }
 
 export function resetMovesCount() {
   moves = 0;
   showMovesCount();
+}
+
+export function saveResultToLS() {
+  const previousResult = localStorage.getItem('SudokuBRE');
+  const data = JSON.parse(previousResult);
+
+  let id = data == null ? 1 : data.length;
+  const result = { id, moves, time: timeCount.textContent, level: gameLevel };
+
+  if (data == null) {
+    localStorage.setItem('SudokuBRE', JSON.stringify([result]));
+  } else {
+    data.push(result);
+    localStorage.setItem('SudokuBRE', JSON.stringify(data));
+  }
+
+  console.log(data);
 }
 
 digits.addEventListener('click', selectDigit);

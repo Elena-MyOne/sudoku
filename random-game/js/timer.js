@@ -1,4 +1,4 @@
-const timer = document.querySelector('.time-count');
+export const timer = document.querySelector('.time-count');
 
 let timeCounter = 0;
 export let gameTime = null;
@@ -9,7 +9,7 @@ export function formatSeconds(seconds) {
   return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
 }
 
-function initGameTime() {
+export function initGameTime() {
   setInterval(() => {
     timer.innerHTML = `${formatSeconds(++timeCounter)}`;
   }, 1000);

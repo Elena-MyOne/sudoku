@@ -1,6 +1,6 @@
-import { timeCount, resetMovesCount } from './buildGame.js';
+import { resetMovesCount } from './buildGame.js';
 import { gameLevel, initBoardGame } from './board.js';
-import { resetTimer } from './timer.js';
+import { resetTimer, timer } from './timer.js';
 
 const close = document.querySelector('.close img');
 export const successPopUp = document.querySelector('.success');
@@ -8,7 +8,7 @@ const successTime = document.querySelector('.success-time');
 const successLevel = document.querySelector('.success-level');
 
 function showTimeCountResult() {
-  const result = timeCount.textContent;
+  const result = timer.textContent;
   successTime.textContent = result;
 }
 
