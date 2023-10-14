@@ -99,7 +99,6 @@ function generateSudoku() {
 
 function generateGameSudoku() {
   const gameLevel = defineGameLevel();
-  console.log(gameLevel);
 
   const board = JSON.parse(JSON.stringify(solutionBoard));
 

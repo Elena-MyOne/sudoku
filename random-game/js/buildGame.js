@@ -32,6 +32,10 @@ export function populateBoardGame(gameBoard) {
         ceil.classList.remove('solved');
       }
 
+      if (gameBoard[row][col] === 1) {
+        ceil.classList.add('hovered');
+      }
+
       board.append(ceil);
     }
   }
