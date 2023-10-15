@@ -2,6 +2,7 @@ import { populateBoardGame, moves, showMovesCount, resetMovesCount } from './bui
 import { resetTimer } from './timer.js';
 
 const levels = document.querySelectorAll('.level');
+export const restart = document.querySelector('.restart');
 
 const LEVEL = {
   EASY: 'level-easy',
@@ -143,3 +144,21 @@ export function setGameLevel(e) {
     resetMovesCount();
   }
 }
+
+function restartGame() {
+  initBoardGame();
+  resetTimer();
+  resetMovesCount();
+
+  if (gameLevel === 'Easy') {
+    levels[0].classList.add('active');
+  }
+  if (gameLevel === 'Medium') {
+    levels[1].classList.add('active');
+  }
+  if (gameLevel === 'Hard') {
+    levels[2].classList.add('active');
+  }
+}
+
+restart.addEventListener('click', restartGame);

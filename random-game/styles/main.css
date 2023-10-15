@@ -67,6 +67,10 @@
   }
 }
 
+.erase {
+  padding: 5px 10px;
+}
+
 .erase.active,
 .level.active,
 .sound.active {
@@ -95,6 +99,23 @@
 
 .sound.active {
   background: var(--main-bg2-color) url('../assets/images/volume.svg') center / contain no-repeat;
+}
+
+.restart {
+  width: 40px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-bg2-color);
+  transition: var(--transition);
+  border: 2px solid var(--main-bg2-color);
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .board {
@@ -194,6 +215,7 @@
 .ceil.error.active {
   border: 2px solid var(--main-hover-color);
   background-color: var(--main-bg-color);
+  color: var(--error);
 }
 
 .ceil-border-right {

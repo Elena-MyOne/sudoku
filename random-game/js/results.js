@@ -51,7 +51,6 @@ function setActiveButtonOnClick(e) {
   }
 }
 
-//TODO============================================
 function populateResultsTable(level) {
   const results = localStorage.getItem('SudokuBRE');
   const data = JSON.parse(results);
@@ -60,29 +59,36 @@ function populateResultsTable(level) {
 }
 
 function createResultsItem(items, resultsItems, level) {
-  if (items == null) {
-    resultsItems.innerHTML = `
-    <div class="results-item">
+  const element = `
+  <div class="results-item">
     <div class="results-number">-</div>
     <div class="results-moves">-</div>
     <div class="results-time">-</div>
   </div>
-    `;
+  `;
+
+  if (items == null) {
+    resultsItems.innerHTML = element;
     return;
   }
 
-  resultsItems.innerHTML = items
-    .filter((item) => item.level === level)
-    .map((elem) => {
-      return `
+  const result = items.filter((item) => item.level === level).sort((a, b) => a.moves - b.moves);
+
+  if (result.length === 0) {
+    resultsItems.innerHTML = element;
+  } else {
+    resultsItems.innerHTML = result
+      .map((elem, index) => {
+        return `
       <div id="${elem.id}" class="results-item">
-        <div class="results-number">${elem.id}</div>
+        <div class="results-number">${index + 1}</div>
         <div class="results-moves">${elem.moves}</div>
         <div class="results-time">${elem.time}</div>
     </div>
       `;
-    })
-    .join('');
+      })
+      .join('');
+  }
 }
 
 resultsButton.addEventListener('click', openResultsPopUp);
