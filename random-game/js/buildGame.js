@@ -1,5 +1,6 @@
 import { solutionBoard, gameLevel } from './board.js';
 import { openSuccessPopUp } from './popUps.js';
+import { playCeilAudio, playWinAudio, playClickAudio } from './audio.js';
 
 export const digits = document.querySelector('.digits');
 const board = document.querySelector('.board');
@@ -67,6 +68,7 @@ function selectDigit(e) {
     target.classList.add('active');
     selectedDigit = target.id;
     hoverCeil(target);
+    playCeilAudio();
   }
 }
 
@@ -97,10 +99,13 @@ function fillUpCeil(e) {
 
     checkErrors(target);
 
+    playClickAudio();
+
     const isGameComplete = checkGameComplete(ceils);
 
     if (isGameComplete) {
       openSuccessPopUp();
+      playWinAudio();
       saveResultToLS();
       return;
     }
@@ -146,14 +151,17 @@ function easeCeil() {
       item.classList.remove('active', 'error');
     }
   });
+
+  playCeilAudio();
 }
 
 function endTheGame() {
   populateBoardGame(solutionBoard);
-  moves = 81;
+  moves = 100;
   showMovesCount();
   openSuccessPopUp();
   saveResultToLS();
+  playWinAudio();
 }
 
 export function resetMovesCount() {

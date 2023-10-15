@@ -1,4 +1,5 @@
 import { gameLevel } from './board.js';
+import { playResultsAudio } from './audio.js';
 
 export const resultsButton = document.querySelector('.statistic');
 const resultsPopUp = document.querySelector('.results');
@@ -21,6 +22,7 @@ function openResultsPopUp() {
   addActiveClass(resultsPopUp);
   setDefaultActiveButton();
   populateResultsTable(gameLevel);
+  playResultsAudio();
 }
 
 function closeResultsPopUp(e) {

@@ -1,4 +1,5 @@
 import { populateBoardGame, moves, showMovesCount, resetMovesCount } from './buildGame.js';
+import { playStartAudio, playCeilAudio } from './audio.js';
 import { resetTimer } from './timer.js';
 
 const levels = document.querySelectorAll('.level');
@@ -142,6 +143,7 @@ export function setGameLevel(e) {
     initBoardGame();
     resetTimer();
     resetMovesCount();
+    playCeilAudio();
   }
 }
 
@@ -149,6 +151,7 @@ function restartGame() {
   initBoardGame();
   resetTimer();
   resetMovesCount();
+  playCeilAudio();
 
   if (gameLevel === 'Easy') {
     levels[0].classList.add('active');

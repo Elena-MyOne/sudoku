@@ -164,10 +164,6 @@
   color: var(--main-bg-color);
 }
 
-/* .digit.disable {
-  opacity: 0.2;
-} */
-
 .edit {
   color: var(--main-hover-color);
 }
