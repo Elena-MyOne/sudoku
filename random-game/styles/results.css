@@ -1,0 +1,123 @@
+.results {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.results.active {
+  display: flex;
+}
+
+.results-content {
+  background-color: #f7d2c1;
+  color: var(--main-bg-color);
+  padding: 50px 40px 25px;
+  border-radius: 5px;
+  position: relative;
+  min-width: 600px;
+  min-height: 400px;
+}
+
+.results-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  transition: var(--transition);
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.results-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin: 40px 0px;
+}
+
+.button {
+  border: 2px solid var(--error);
+  color: var(--error);
+  background-color: rgb(190, 53, 55, 0.1);
+  font-weight: 700;
+  border-radius: 5px;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  &:hover {
+    color: var(--main-font-color);
+    background-color: var(--error);
+    font-weight: 500;
+  }
+}
+
+.button.active {
+  border: 2px solid var(--error);
+  color: var(--main-font-color);
+  background-color: var(--error);
+}
+
+.bold {
+  font-family: 'Black Ops One', serif;
+  font-size: 1.2em;
+  border-bottom: 2px solid var(--main-bg-color);
+  border-top: 2px solid var(--main-bg-color);
+}
+
+.results-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 0px;
+  font-weight: 500;
+}
+
+.results-number {
+  flex: 0 1 100px;
+  padding: 10px 0px;
+}
+
+.results-moves,
+.results-time {
+  flex: 0 1 200px;
+  padding: 10px 0px;
+}
+
+.results-number,
+.results-moves,
+.results-time {
+  border-right: 2px solid var(--main-bg-color);
+}
+
+.results-number {
+  border-left: 2px solid var(--main-bg-color);
+}
+
+.results-table {
+  max-height: 400px;
+  overflow-y: auto;
+  border-bottom: 2px solid var(--main-bg-color);
+}
+.results-table::-webkit-scrollbar {
+  width: 10px;
+}
+.results-table::-webkit-scrollbar-track {
+  background: rgba(80, 79, 79, 0.6);
+  border-radius: 5px;
+}
+.results-table::-webkit-scrollbar-thumb {
+  background: var(--error);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.results-table::-webkit-scrollbar-thumb:hover {
+  background: rgb(204, 53, 55);
+}

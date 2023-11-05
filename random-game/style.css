@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,regular,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Black+Ops+One:regular);
+
+@import './styles/variables.css';
+@import './styles/reset.css';
+@import './styles/header.css';
+@import './styles/main.css';
+@import './styles/success.css';
+@import './styles/results.css';
+@import './styles/footer.css';

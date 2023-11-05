@@ -1,0 +1,240 @@
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.game {
+  font-weight: 500;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.levels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.level {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--main-bg2-color);
+  background: var(--secondary-bg-color);
+  padding: 7px 10px;
+}
+
+.level.active {
+  background-color: var(--main-bg2-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.info-bar {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+
+.level,
+.erase,
+.sound {
+  transition: var(--transition);
+  background: var(--secondary-bg-color);
+  border: 2px solid var(--main-bg2-color);
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.erase {
+  padding: 5px 10px;
+}
+
+.erase.active,
+.level.active,
+.sound.active {
+  background-color: var(--main-bg2-color);
+}
+
+.solve {
+  transition: var(--transition);
+  background: var(--error);
+  border: 2px solid var(--error);
+  color: var(--main-font-color);
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.sound {
+  width: 40px;
+  height: 36px;
+  background: var(--secondary-bg-color) url('../assets/images/volume_off.svg') center / contain
+    no-repeat;
+}
+
+.sound.active {
+  background: var(--main-bg2-color) url('../assets/images/volume.svg') center / contain no-repeat;
+}
+
+.restart {
+  width: 40px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--main-bg2-color);
+  transition: var(--transition);
+  border: 2px solid var(--main-bg2-color);
+  border-radius: 5px;
+  padding: 7px 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.board {
+  width: 454px;
+  height: 454px;
+  margin: 0 auto;
+  border: 1px solid var(--ceil-color);
+  background-color: var(--ceil-color);
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.digits {
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+}
+
+.digit {
+  background-color: var(--ceil-color);
+  font-size: 1.2em;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--main-bg2-color);
+  transition: var(--transition);
+  &:hover {
+    border: 2px solid var(--main-hover-color);
+    background-color: var(--main-hover-color);
+  }
+}
+
+.digit.active {
+  border: 2px solid var(--main-hover-color);
+  background-color: var(--main-hover-color);
+  color: var(--main-bg-color);
+}
+
+.edit {
+  color: var(--main-hover-color);
+}
+
+.ceil {
+  width: 49px;
+  height: 49px;
+  border: 2px solid var(--main-bg3-color);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+  &:hover {
+    border: 2px solid var(--main-hover-color);
+    background-color: var(--main-hover-color);
+    color: var(--main-bg-color);
+  }
+}
+
+.ceil.hovered {
+  background-color: var(--main-bg3-color);
+  color: var(--main-font-color);
+}
+
+.ceil.active {
+  border: 2px solid var(--main-hover-color);
+  background-color: var(--main-hover-color);
+  color: var(--main-bg-color);
+}
+
+.ceil.error {
+  color: var(--error);
+  font-weight: 500;
+  transition: var(--transition);
+  &:hover {
+    border: 2px solid var(--main-hover-color);
+    background-color: var(--main-hover-color);
+    color: var(--main-bg-color);
+  }
+}
+
+.ceil.error.active {
+  border: 2px solid var(--main-hover-color);
+  background-color: var(--main-bg-color);
+  color: var(--error);
+}
+
+.ceil-border-right {
+  border-right: 2px solid var(--main-bg2-color);
+}
+
+.ceil-border-bottom {
+  border-bottom: 2px solid var(--main-bg2-color);
+}
+
+.number {
+  border: 1px solid var(--main-hover-color);
+}
+
+.moves-count,
+.time-count {
+  color: var(--main-hover-color);
+  font-weight: 500;
+  font-size: 1.1em;
+  font-family: 'Black Ops One', serif;
+}
+
+.time,
+.moves {
+  width: 130px;
+}

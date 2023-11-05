@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  background-color: var(--secondary-bg-color);
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.logo-image {
+  width: 100%;
+}
+
+.github a {
+  color: var(--main-hover-color);
+  font-family: 'Black Ops One', serif;
+  cursor: pointer;
+  font-weight: 400;
+  transition: var(--transition);
+  &:hover {
+    opacity: 0.8;
+  }
+}

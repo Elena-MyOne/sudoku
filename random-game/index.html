@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Sudoku</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="logo">Sudoku</div>
+        <div class="header-info">
+          <div class="statistic">Statistic</div>
+          <div class="solve">Solve</div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="game">
+          <div class="info-bar">
+            <div class="moves">
+              Moves:
+              <span class="moves-count"></span>
+            </div>
+            <div class="time">
+              <span class="time-count">00:00:00</span>
+            </div>
+            <div class="erase active">
+              erase
+              <span class="hints-count">
+                <img src="./assets/images/erase.svg" alt="erase ceil" />
+              </span>
+            </div>
+            <div class="sound active"></div>
+            <div class="restart">
+              <img src="./assets/images/refresh.svg" alt="restart the game" />
+            </div>
+          </div>
+          <div class="board"></div>
+          <div class="digits"></div>
+          <div class="levels">
+            <div class="level level-easy active">Easy</div>
+            <div class="level level-medium">Medium</div>
+            <div class="level level-hard">Hard</div>
+          </div>
+        </div>
+      </main>
+      <div class="success">
+        <div class="success-content">
+          <div class="close"><img src="./assets/images/close.svg" alt="close pop up" /></div>
+          <div class="title">Sudoku solved!</div>
+          <div class="success-text">Moves: <span class="moves-count text"></span></div>
+          <div class="success-text">Time: <span class="success-time text">00:00:00</span></div>
+          <div class="success-text">Level: <span class="success-level text">Easy</span></div>
+        </div>
+      </div>
+      <div class="results">
+        <div class="results-content">
+          <div class="results-close">
+            <img src="./assets/images/close.svg" alt="close pop up" />
+          </div>
+          <div class="title">Statistic</div>
+          <div class="results-buttons">
+            <div class="results-easy button">Easy</div>
+            <div class="results-medium button">Medium</div>
+            <div class="results-hard button">Hard</div>
+          </div>
+          <div class="results-table">
+            <div class="results-item bold">
+              <div class="results-number">#</div>
+              <div class="results-moves">Moves</div>
+              <div class="results-time">Time</div>
+            </div>
+            <div class="results-items">
+              <div class="results-item">
+                <div class="results-number">-</div>
+                <div class="results-moves">-</div>
+                <div class="results-time">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <a class="logo" href="https://rs.school/js-stage0/" target="_blank">
+          <img class="logo-image" src="./assets/images/rslogo-w.svg" alt="RS logo" />
+        </a>
+        <div class="year">2023</div>
+        <div class="github">
+          <a href="https://github.com/Elena-MyOne" target="_blank">elena-myone</a>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
